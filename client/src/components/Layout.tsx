@@ -19,10 +19,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
+    { label: "Головна", href: "/" },
+    { label: "Послуги", href: "/services" },
+    { label: "Блог", href: "/blog" },
+    { label: "Контакти", href: "/contact" },
   ];
 
   return (
@@ -46,13 +46,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "text-xl font-serif font-bold leading-none tracking-tight",
                 isScrolled || mobileMenuOpen ? "text-primary" : "text-white"
               )}>
-                YAREMCHUK & SEDUN
+                ЯРЕМЧУК І СЕДУН
               </span>
               <span className={cn(
                 "text-[10px] uppercase tracking-widest opacity-80",
                 isScrolled || mobileMenuOpen ? "text-muted-foreground" : "text-white/80"
               )}>
-                Attorneys at Law
+                Адвокатське об'єднання
               </span>
             </div>
           </Link>
@@ -88,6 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <button 
             className="md:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            data-testid="button-mobile-menu"
           >
             {mobileMenuOpen ? (
               <X className={cn("h-6 w-6", isScrolled ? "text-foreground" : "text-white")} />
@@ -112,7 +113,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
               <Button className="w-full mt-4" onClick={() => window.location.href = "tel:+380441234567"}>
-                Call Now
+                Зателефонувати
               </Button>
             </nav>
           </div>
@@ -130,39 +131,39 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <div className="p-2 bg-white text-primary">
                 <Scale className="h-6 w-6" />
               </div>
-              <span className="text-xl font-serif font-bold">YAREMCHUK & SEDUN</span>
+              <span className="text-xl font-serif font-bold">ЯРЕМЧУК І СЕДУН</span>
             </div>
             <p className="text-white/60 max-w-sm leading-relaxed">
-              Providing exceptional legal representation with a strict adherence to ethics and professionalism. Your rights are our priority.
+              Надаємо виняткове правове представництво з суворим дотриманням етики та професіоналізму. Ваші права — наш пріоритет.
             </p>
           </div>
           
           <div className="space-y-6">
-            <h4 className="text-lg font-serif font-semibold">Practice Areas</h4>
+            <h4 className="text-lg font-serif font-semibold">Напрямки практики</h4>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>Criminal Defense</li>
-              <li>Corporate Law</li>
-              <li>Civil Litigation</li>
-              <li>Family Law</li>
-              <li>Military Law</li>
+              <li>Кримінальний захист</li>
+              <li>Корпоративне право</li>
+              <li>Цивільні спори</li>
+              <li>Сімейне право</li>
+              <li>Військове право</li>
             </ul>
           </div>
 
           <div className="space-y-6">
-            <h4 className="text-lg font-serif font-semibold">Contact</h4>
+            <h4 className="text-lg font-serif font-semibold">Контакти</h4>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>Kyiv, Volodymyrska St, 101</li>
+              <li>Київ, вул. Володимирська, 101</li>
               <li>+380 44 123 45 67</li>
               <li>info@yaremchuk-sedun.ua</li>
-              <li>Mon-Fri: 09:00 - 18:00</li>
+              <li>Пн-Пт: 09:00 - 18:00</li>
             </ul>
           </div>
         </div>
         <div className="container-wide mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
-          <p>© {new Date().getFullYear()} Yaremchuk & Sedun. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Яремчук і Седун. Всі права захищені.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+            <span>Політика конфіденційності</span>
+            <span>Умови використання</span>
           </div>
         </div>
       </footer>

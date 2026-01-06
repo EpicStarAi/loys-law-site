@@ -46,9 +46,9 @@ export default function Contact() {
     <div className="min-h-screen">
       <div className="bg-primary text-white py-20">
         <div className="container-wide text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Контакти</h1>
           <p className="text-white/60 max-w-xl mx-auto text-lg">
-            Ready to discuss your case? Fill out the form or visit our office.
+            Готові обговорити вашу справу? Заповніть форму або завітайте до нашого офісу.
           </p>
         </div>
       </div>
@@ -57,15 +57,15 @@ export default function Contact() {
         {/* Info Column */}
         <div className="space-y-12">
            <div className="space-y-6">
-             <h2 className="text-2xl font-serif font-bold text-primary">Office Information</h2>
+             <h2 className="text-2xl font-serif font-bold text-primary">Інформація про офіс</h2>
              <div className="space-y-4">
                <div className="flex gap-4">
                  <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
                    <MapPin className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Kyiv Office</h3>
-                   <p className="text-muted-foreground">Volodymyrska St, 101, Kyiv, Ukraine 01033</p>
+                   <h3 className="font-semibold text-primary">Офіс у Києві</h3>
+                   <p className="text-muted-foreground">вул. Володимирська, 101, Київ, Україна 01033</p>
                  </div>
                </div>
                
@@ -74,7 +74,7 @@ export default function Contact() {
                    <Phone className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Phone</h3>
+                   <h3 className="font-semibold text-primary">Телефон</h3>
                    <p className="text-muted-foreground">+380 44 123 45 67</p>
                  </div>
                </div>
@@ -94,8 +94,8 @@ export default function Contact() {
                    <Clock className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Working Hours</h3>
-                   <p className="text-muted-foreground">Mon-Fri: 09:00 - 18:00</p>
+                   <h3 className="font-semibold text-primary">Графік роботи</h3>
+                   <p className="text-muted-foreground">Пн-Пт: 09:00 - 18:00</p>
                  </div>
                </div>
              </div>
@@ -104,13 +104,13 @@ export default function Contact() {
            {/* Placeholder Map */}
            <div className="h-[300px] w-full bg-muted border border-border relative overflow-hidden flex items-center justify-center">
               <div className="absolute inset-0 bg-primary/5"></div>
-              <span className="text-muted-foreground uppercase tracking-widest font-semibold">Map Integration</span>
+              <span className="text-muted-foreground uppercase tracking-widest font-semibold">Інтеграція карти</span>
            </div>
         </div>
 
         {/* Form Column */}
         <div className="bg-white border border-border p-8 md:p-10 shadow-lg">
-          <h2 className="text-2xl font-serif font-bold mb-6">Send an Inquiry</h2>
+          <h2 className="text-2xl font-serif font-bold mb-6">Надіслати запит</h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -119,9 +119,9 @@ export default function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel>Повне ім'я</FormLabel>
                       <FormControl>
-                        <Input placeholder="John Doe" {...field} />
+                        <Input placeholder="Іван Петренко" {...field} data-testid="input-name" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -133,16 +133,16 @@ export default function Contact() {
                   name="type"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Client Type</FormLabel>
+                      <FormLabel>Тип клієнта</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select type" />
+                          <SelectTrigger data-testid="select-type">
+                            <SelectValue placeholder="Оберіть тип" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="individual">Individual</SelectItem>
-                          <SelectItem value="corporate">Corporate</SelectItem>
+                          <SelectItem value="individual">Фізична особа</SelectItem>
+                          <SelectItem value="corporate">Юридична особа</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -159,7 +159,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="john@example.com" {...field} />
+                        <Input placeholder="ivan@example.com" {...field} data-testid="input-email" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -171,9 +171,9 @@ export default function Contact() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone</FormLabel>
+                      <FormLabel>Телефон</FormLabel>
                       <FormControl>
-                        <Input placeholder="+380..." {...field} />
+                        <Input placeholder="+380..." {...field} data-testid="input-phone" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -186,9 +186,9 @@ export default function Contact() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>How can we help?</FormLabel>
+                    <FormLabel>Як ми можемо допомогти?</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Briefly describe your situation..." {...field} />
+                      <Textarea placeholder="Коротко опишіть вашу ситуацію..." {...field} data-testid="input-message" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -200,8 +200,9 @@ export default function Contact() {
                 size="lg" 
                 className="w-full"
                 disabled={mutation.isPending}
+                data-testid="button-submit"
               >
-                {mutation.isPending ? "Submitting..." : "Submit Inquiry"}
+                {mutation.isPending ? "Надсилання..." : "Надіслати запит"}
               </Button>
             </form>
           </Form>

@@ -46,15 +46,15 @@ export function ChatWidget() {
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
               className="absolute bottom-20 right-0 w-[350px] md:w-[400px] h-[500px] bg-background border border-border shadow-2xl flex flex-col overflow-hidden"
-              style={{ borderRadius: "0px" }} // Strict minimalist square corners
+              style={{ borderRadius: "0px" }}
             >
               {/* Header */}
               <div className="bg-primary text-white p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   <div>
-                    <h3 className="font-serif font-medium text-sm">Legal Consultant</h3>
-                    <p className="text-[10px] text-white/60 uppercase tracking-wider">AI Powered Assistant</p>
+                    <h3 className="font-serif font-medium text-sm">Юридичний консультант</h3>
+                    <p className="text-[10px] text-white/60 uppercase tracking-wider">AI асистент</p>
                   </div>
                 </div>
                 <Button 
@@ -62,6 +62,7 @@ export function ChatWidget() {
                   size="icon" 
                   className="text-white hover:bg-white/10 h-8 w-8" 
                   onClick={toggleChat}
+                  data-testid="button-close-chat"
                 >
                   <X className="h-4 w-4" />
                 </Button>
@@ -71,7 +72,7 @@ export function ChatWidget() {
               <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/20 scrollbar-hide">
                 {messages.length === 0 && isLoading && (
                   <div className="flex justify-center p-4">
-                    <span className="animate-pulse text-xs text-muted-foreground">Connecting...</span>
+                    <span className="animate-pulse text-xs text-muted-foreground">Підключення...</span>
                   </div>
                 )}
                 
@@ -119,16 +120,18 @@ export function ChatWidget() {
                 <form onSubmit={handleSubmit} className="flex gap-2">
                   <Input 
                     name="message" 
-                    placeholder="Describe your legal issue..." 
+                    placeholder="Опишіть вашу правову проблему..." 
                     ref={inputRef}
                     autoComplete="off"
                     className="rounded-none border-0 bg-muted/50 focus-visible:ring-0 focus-visible:bg-white transition-colors"
+                    data-testid="input-chat-message"
                   />
                   <Button 
                     type="submit" 
                     size="icon" 
                     disabled={isStreaming}
                     className="rounded-none w-12 shrink-0"
+                    data-testid="button-send-message"
                   >
                     <Send className="h-4 w-4" />
                   </Button>
@@ -146,6 +149,7 @@ export function ChatWidget() {
             "w-14 h-14 bg-primary text-white flex items-center justify-center shadow-lg transition-colors border border-white/10 hover:bg-primary/90",
             isOpen && "opacity-0 pointer-events-none"
           )}
+          data-testid="button-open-chat"
         >
           <MessageCircle className="h-7 w-7" />
         </motion.button>

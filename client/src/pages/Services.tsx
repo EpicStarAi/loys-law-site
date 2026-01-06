@@ -9,10 +9,10 @@ export default function Services() {
     <div className="min-h-screen bg-muted/10">
       <div className="bg-primary text-white py-20">
         <div className="container-wide">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Our Services</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Наші послуги</h1>
           <p className="text-white/60 max-w-2xl text-lg">
-            We provide a full range of legal services with a focus on results. 
-            Choose the practice area relevant to your needs.
+            Ми надаємо повний спектр юридичних послуг з акцентом на результат. 
+            Оберіть напрямок практики, що відповідає вашим потребам.
           </p>
         </div>
       </div>

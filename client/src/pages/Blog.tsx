@@ -1,6 +1,7 @@
 import { usePosts } from "@/hooks/use-legal-data";
 import { Link } from "wouter";
 import { format } from "date-fns";
+import { uk } from "date-fns/locale";
 import { ArrowRight, Bot } from "lucide-react";
 
 export default function Blog() {
@@ -10,9 +11,9 @@ export default function Blog() {
     <div className="min-h-screen">
       <div className="bg-white border-b border-border py-20">
         <div className="container-wide">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Legal Insights</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Юридичні статті</h1>
           <p className="text-muted-foreground max-w-2xl text-lg">
-            Analysis of legislation, court practice, and news from our AI-powered analytical department.
+            Аналіз законодавства, судової практики та новини від нашого аналітичного відділу на базі AI.
           </p>
         </div>
       </div>
@@ -29,7 +30,6 @@ export default function Blog() {
             {posts?.map((post) => (
               <article key={post.id} className="group flex flex-col md:flex-row gap-8 items-start border-b border-border pb-12">
                 <div className="w-full md:w-1/3 aspect-video bg-muted overflow-hidden">
-                   {/* Placeholder for AI generated image or stock */}
                    {post.imageUrl ? (
                      <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                    ) : (
@@ -41,10 +41,10 @@ export default function Blog() {
                 
                 <div className="flex-1 space-y-4">
                   <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
-                    <span>{post.publishedAt ? format(new Date(post.publishedAt), "MMMM d, yyyy") : "Draft"}</span>
+                    <span>{post.publishedAt ? format(new Date(post.publishedAt), "d MMMM yyyy", { locale: uk }) : "Чернетка"}</span>
                     {post.isAiGenerated && (
                       <span className="flex items-center gap-1 bg-primary/5 px-2 py-1 rounded-sm text-primary">
-                        <Bot className="w-3 h-3" /> AI Analysis
+                        <Bot className="w-3 h-3" /> AI аналіз
                       </span>
                     )}
                   </div>
@@ -58,7 +58,7 @@ export default function Blog() {
                   </p>
                   
                   <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-sm font-medium text-primary mt-2 group-hover:underline underline-offset-4">
-                    Read Article <ArrowRight className="ml-2 w-4 h-4" />
+                    Читати статтю <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </div>
               </article>

@@ -1,10 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api } from "@shared/routes"; // We need the integration routes, but they might not be in shared/routes.ts if generated dynamically. 
-// Assuming standard paths based on the integration instructions:
-// GET /api/conversations
-// POST /api/conversations
-// POST /api/conversations/:id/messages
+import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 interface Message {
   role: "user" | "assistant";
@@ -24,21 +19,19 @@ export function useChatWidget() {
   
   const queryClient = useQueryClient();
 
-  // Create conversation on first open if none exists
   const createConversationMutation = useMutation({
     mutationFn: async () => {
       const res = await fetch("/api/conversations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: "Legal Consultation" }),
+        body: JSON.stringify({ title: "Юридична консультація" }),
       });
-      if (!res.ok) throw new Error("Failed to start chat");
+      if (!res.ok) throw new Error("Не вдалося розпочати чат");
       return await res.json();
     },
     onSuccess: (data: Conversation) => {
       setActiveConversationId(data.id);
-      // Add initial greeting
-      setMessages([{ role: "assistant", content: "Hello. Briefly describe your legal situation, and I will connect you with the right specialist." }]);
+      setMessages([{ role: "assistant", content: "Вітаю. Коротко опишіть вашу правову ситуацію, і я з'єднаю вас з потрібним спеціалістом." }]);
     },
   });
 
@@ -52,7 +45,6 @@ export function useChatWidget() {
   const sendMessage = async (content: string) => {
     if (!activeConversationId) return;
 
-    // Optimistic update
     const userMsg: Message = { role: "user", content };
     setMessages((prev) => [...prev, userMsg]);
     setIsStreaming(true);
@@ -64,14 +56,13 @@ export function useChatWidget() {
         body: JSON.stringify({ content }),
       });
 
-      if (!response.ok) throw new Error("Failed to send message");
-      if (!response.body) throw new Error("No response body");
+      if (!response.ok) throw new Error("Не вдалося надіслати повідомлення");
+      if (!response.body) throw new Error("Немає відповіді");
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let assistantMsg: Message = { role: "assistant", content: "" };
 
-      // Add placeholder for assistant message
       setMessages((prev) => [...prev, assistantMsg]);
 
       while (true) {
@@ -101,14 +92,14 @@ export function useChatWidget() {
                 });
               }
             } catch (e) {
-              console.error("Error parsing SSE data", e);
+              console.error("Помилка парсингу SSE даних", e);
             }
           }
         }
       }
     } catch (err) {
       console.error(err);
-      setMessages((prev) => [...prev, { role: "assistant", content: "I apologize, I am experiencing connection issues. Please try again or call our office directly." }]);
+      setMessages((prev) => [...prev, { role: "assistant", content: "Вибачте, виникли проблеми зі з'єднанням. Спробуйте ще раз або зателефонуйте напряму до нашого офісу." }]);
       setIsStreaming(false);
     }
   };
