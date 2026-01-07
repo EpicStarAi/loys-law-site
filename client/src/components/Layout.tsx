@@ -157,7 +157,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <li>Київ, пр. Соборності, 19</li>
               <li>+380 97 777 76 00</li>
               <li>attorneysys@gmail.com</li>
-              <li>Telegram: @Ruslan_Yaremchuk</li>
+              <li><a href="https://t.me/Ruslan_Yaremchuk" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @Ruslan_Yaremchuk</a></li>
             </ul>
             <a 
               href="https://www.facebook.com/yaremchukandpartners/" 
