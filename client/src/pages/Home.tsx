@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { usePosts } from "@/hooks/use-legal-data";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -21,9 +22,16 @@ import officeVideo from "@assets/video_2026-01-08_00-00-44_1767819964671.mp4";
 export default function Home() {
   const { data: posts } = usePosts();
   const { locale, t } = useI18n();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const dateLocale = locale === "uk" ? uk : enUS;
   const latestPosts = posts?.slice(0, 4) || [];
+
+  const handleVideoTimeUpdate = () => {
+    if (videoRef.current && videoRef.current.currentTime >= 6) {
+      videoRef.current.pause();
+    }
+  };
 
   const services = [
     { id: "criminal", icon: ShieldAlert, title: t.services.criminal, desc: t.services.criminalDesc },
@@ -179,10 +187,11 @@ export default function Home() {
           <div className="relative">
             <div className="aspect-[4/3] bg-primary/10 overflow-hidden">
               <video
+                ref={videoRef}
                 autoPlay
                 muted
-                loop
                 playsInline
+                onTimeUpdate={handleVideoTimeUpdate}
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               >
                 <source src={officeVideo} type="video/mp4" />
