@@ -35,7 +35,7 @@ export function BackgroundMusic() {
         ref={audioRef}
         loop
         preload="none"
-        src="https://cdn.pixabay.com/download/audio/2022/02/22/audio_d1718ab41b.mp3"
+        src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_d85cb30e90.mp3"
       />
       <Button
         variant="ghost"
