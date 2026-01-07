@@ -5,8 +5,10 @@ import { useCreateInquiry } from "@/hooks/use-legal-data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, MessageCircle, Facebook } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, FileText } from "lucide-react";
 import { useI18n } from "@/i18n/I18nProvider";
+import { motion } from "framer-motion";
+import { SiTelegram, SiViber, SiWhatsapp } from "react-icons/si";
 import {
   Form,
   FormControl,
@@ -25,7 +27,7 @@ import {
 
 export default function Contact() {
   const mutation = useCreateInquiry();
-  const { locale, t } = useI18n();
+  const { t } = useI18n();
   
   const form = useForm<InsertInquiry>({
     resolver: zodResolver(insertInquirySchema),
@@ -46,134 +48,167 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
-      <div className="bg-primary text-white py-20">
-        <div className="container-wide text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{t.contact.title}</h1>
-          <p className="text-white/60 max-w-xl mx-auto text-lg">
-            {t.contact.subtitle}
-          </p>
+      {/* Hero */}
+      <section className="bg-primary text-white py-32">
+        <div className="container-wide">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
+          >
+            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">{t.contact.title}</h1>
+            <p className="text-xl text-white/70 leading-relaxed">
+              {t.contact.subtitle}
+            </p>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
       <div className="container-wide py-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Info Column */}
         <div className="space-y-12">
-           <div className="space-y-6">
-             <h2 className="text-2xl font-serif font-bold text-primary">{t.contact.officeInfo}</h2>
-             <div className="space-y-4">
-               <div className="flex gap-4">
-                 <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
-                   <MapPin className="w-5 h-5 text-primary" />
-                 </div>
-                 <div>
-                   <h3 className="font-semibold text-primary">{t.contact.office}</h3>
-                   <p className="text-muted-foreground">
-                     {locale === "uk" ? "пр. Соборності, 19, Київ, Україна, 02160" : "19 Sobornosti Ave, Kyiv, Ukraine, 02160"}
-                   </p>
-                 </div>
-               </div>
-               
-               <div className="flex gap-4">
-                 <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
-                   <Phone className="w-5 h-5 text-primary" />
-                 </div>
-                 <div>
-                   <h3 className="font-semibold text-primary">{t.contact.phone}</h3>
-                   <p className="text-muted-foreground">+380 97 777 76 00</p>
-                 </div>
-               </div>
-               
-               <div className="flex gap-4">
-                 <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
-                   <Mail className="w-5 h-5 text-primary" />
-                 </div>
-                 <div>
-                   <h3 className="font-semibold text-primary">{t.contact.email}</h3>
-                   <a href="mailto:attorneysys@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">attorneysys@gmail.com</a>
-                 </div>
-               </div>
+          <div className="space-y-8">
+            <h2 className="text-2xl font-serif font-bold text-primary">{t.contact.officeInfo}</h2>
+            
+            {/* Kyiv Office */}
+            <div className="border border-border p-6 space-y-4">
+              <h3 className="font-serif font-bold text-lg flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-primary" />
+                {t.contact.kyivOffice}
+              </h3>
+              <p className="text-muted-foreground pl-7">{t.contact.kyivAddress}</p>
+              <div className="pl-7 space-y-2 text-sm">
+                <p className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-primary/60" />
+                  <a href="tel:+380977777600" className="hover:text-primary transition-colors">+380 97 777 76 00</a>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-primary/60" />
+                  <a href="mailto:attorneysys@gmail.com" className="hover:text-primary transition-colors">attorneysys@gmail.com</a>
+                </p>
+              </div>
+            </div>
 
-               <div className="flex gap-4">
-                 <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
-                   <MessageCircle className="w-5 h-5 text-primary" />
-                 </div>
-                 <div>
-                   <h3 className="font-semibold text-primary">{t.contact.telegram}</h3>
-                   <a href="https://t.me/Ruslan_Yaremchuk" className="text-muted-foreground hover:text-primary transition-colors">@Ruslan_Yaremchuk</a>
-                 </div>
-               </div>
+            {/* Brovary Office */}
+            <div className="border border-border p-6 space-y-4">
+              <h3 className="font-serif font-bold text-lg flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-primary" />
+                {t.contact.brovaryOffice}
+              </h3>
+              <p className="text-muted-foreground pl-7">{t.contact.brovaryAddress}</p>
+              <div className="pl-7 space-y-2 text-sm">
+                <p className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-primary/60" />
+                  <a href="tel:+380977777600" className="hover:text-primary transition-colors">+380 97 777 76 00</a>
+                </p>
+              </div>
+            </div>
 
-               <div className="flex gap-4">
-                 <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
-                   <Clock className="w-5 h-5 text-primary" />
-                 </div>
-                 <div>
-                   <h3 className="font-semibold text-primary">{t.contact.schedule}</h3>
-                   <p className="text-muted-foreground">{t.contact.scheduleTime}</p>
-                 </div>
-               </div>
+            {/* Schedule */}
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
+                <Clock className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-primary">{t.contact.schedule}</h3>
+                <p className="text-muted-foreground">{t.contact.scheduleTime}</p>
+              </div>
+            </div>
 
-               <div className="flex gap-4">
-                 <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
-                   <Facebook className="w-5 h-5 text-primary" />
-                 </div>
-                 <div>
-                   <h3 className="font-semibold text-primary">Facebook</h3>
-                   <a href="https://www.facebook.com/yaremchukandpartners/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">yaremchukandpartners</a>
-                 </div>
-               </div>
-             </div>
-           </div>
+            {/* Messengers */}
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
+                <MessageCircle className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-primary mb-3">{t.contact.telegram}</h3>
+                <div className="flex gap-3">
+                  <a 
+                    href="https://t.me/Ruslan_Yaremchuk" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-[#0088cc] text-white flex items-center justify-center hover:opacity-80 transition-opacity"
+                  >
+                    <SiTelegram className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="viber://chat?number=%2B380977777600"
+                    className="w-10 h-10 bg-[#7360f2] text-white flex items-center justify-center hover:opacity-80 transition-opacity"
+                  >
+                    <SiViber className="w-5 h-5" />
+                  </a>
+                  <a 
+                    href="https://wa.me/380977777600" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-[#25D366] text-white flex items-center justify-center hover:opacity-80 transition-opacity"
+                  >
+                    <SiWhatsapp className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
 
-           {/* Placeholder Map */}
-           <div className="h-[300px] w-full bg-muted border border-border relative overflow-hidden flex items-center justify-center">
-              <div className="absolute inset-0 bg-primary/5"></div>
-              <span className="text-muted-foreground uppercase tracking-widest font-semibold">{t.contact.mapIntegration}</span>
-           </div>
+            {/* Documents for consultation */}
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
+                <FileText className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-primary">{t.contact.documents}</h3>
+                <p className="text-muted-foreground text-sm">{t.contact.docsList}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Map Placeholder */}
+          <div className="h-[250px] w-full bg-muted border border-border relative overflow-hidden flex items-center justify-center">
+            <div className="absolute inset-0 bg-primary/5"></div>
+            <span className="text-muted-foreground uppercase tracking-widest font-semibold text-sm">{t.contact.mapIntegration}</span>
+          </div>
         </div>
 
         {/* Form Column */}
-        <div className="bg-white border border-border p-8 md:p-10 shadow-lg">
+        <div className="bg-white border border-border p-8 md:p-10 shadow-lg h-fit">
           <h2 className="text-2xl font-serif font-bold mb-6">{t.contact.sendRequest}</h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.contact.fullName}</FormLabel>
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t.contact.fullName}</FormLabel>
+                    <FormControl>
+                      <Input placeholder="" {...field} data-testid="input-name" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="type"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t.contact.clientType}</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <Input placeholder={locale === "uk" ? "Іван Петренко" : "John Smith"} {...field} data-testid="input-name" />
+                        <SelectTrigger data-testid="select-type">
+                          <SelectValue placeholder={t.contact.selectType} />
+                        </SelectTrigger>
                       </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="type"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t.contact.clientType}</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger data-testid="select-type">
-                            <SelectValue placeholder={t.contact.selectType} />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="individual">{t.contact.individual}</SelectItem>
-                          <SelectItem value="corporate">{t.contact.corporate}</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+                      <SelectContent>
+                        <SelectItem value="individual">{t.contact.individual}</SelectItem>
+                        <SelectItem value="corporate">{t.contact.corporate}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <FormField

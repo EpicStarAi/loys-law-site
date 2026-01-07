@@ -1,122 +1,123 @@
-import { useServices, useTeam } from "@/hooks/use-legal-data";
-import { ServiceCard } from "@/components/ServiceCard";
-import { TeamCard } from "@/components/TeamCard";
+import { usePosts } from "@/hooks/use-legal-data";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, Scale, ShieldCheck, Award } from "lucide-react";
+import { ArrowRight, Scale, ShieldCheck, Award, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/i18n/I18nProvider";
+import { format } from "date-fns";
+import { uk, enUS } from "date-fns/locale";
+import { 
+  ShieldAlert, 
+  Medal, 
+  Users, 
+  FileText, 
+  Briefcase,
+  Globe,
+  Building,
+  Landmark
+} from "lucide-react";
 
 export default function Home() {
-  const { data: services } = useServices();
-  const { data: team } = useTeam();
+  const { data: posts } = usePosts();
   const { locale, t } = useI18n();
 
-  const featuredServices = services?.slice(0, 6) || [];
-  const featuredTeam = team?.slice(0, 4) || [];
+  const dateLocale = locale === "uk" ? uk : enUS;
+  const latestPosts = posts?.slice(0, 4) || [];
 
-  const stats = locale === "uk" ? [
-    { icon: Scale, label: "Виграних справ", value: "500+" },
-    { icon: Award, label: "Рейтинг Google", value: "4.9/5" },
-    { icon: ShieldCheck, label: "Ліцензія", value: "НААУ" },
-  ] : [
-    { icon: Scale, label: "Cases Won", value: "500+" },
-    { icon: Award, label: "Google Rating", value: "4.9/5" },
-    { icon: ShieldCheck, label: "License", value: "UNBA" },
+  const services = [
+    { id: "criminal", icon: ShieldAlert, title: t.services.criminal, desc: t.services.criminalDesc },
+    { id: "military", icon: Medal, title: t.services.military, desc: t.services.militaryDesc },
+    { id: "family", icon: Users, title: t.services.family, desc: t.services.familyDesc },
+    { id: "civil", icon: Scale, title: t.services.civil, desc: t.services.civilDesc },
+    { id: "echr", icon: Globe, title: t.services.echr, desc: t.services.echrDesc },
+    { id: "corporate", icon: Briefcase, title: t.services.corporate, desc: t.services.corporateDesc },
+  ];
+
+  const stats = [
+    { value: "500+", label: t.home.statsWon },
+    { value: "15+", label: t.home.statsExperience },
+    { value: "4.9", label: t.home.statsRating },
   ];
 
   return (
     <div className="w-full">
-      {/* HERO SECTION */}
-      <section className="relative h-screen min-h-[600px] flex items-center justify-center bg-primary text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800 to-slate-950 z-0" />
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] z-0 mix-blend-overlay" />
+      {/* HERO SECTION - Full screen with image */}
+      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=2000')"
+          }}
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
         
-        <div className="container-wide relative z-10 grid md:grid-cols-2 gap-12 items-center">
+        <div className="container-wide relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-8 text-white"
           >
-            <div className="inline-block px-3 py-1 border border-white/20 text-xs uppercase tracking-[0.2em] text-white/80">
+            <div className="inline-block px-4 py-2 border border-white/20 text-xs uppercase tracking-[0.2em] text-white/80">
               {locale === "uk" ? "Київ • Бровари" : "Kyiv • Brovary"}
             </div>
+            
             <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight">
               {locale === "uk" ? (
-                <>Захист, коли на кону <br /><span className="text-white/50 italic font-serif">свобода</span>.</>
+                <>Захист, коли на кону <span className="text-white/60 italic">свобода</span>.</>
               ) : (
-                <>Defense when <br /><span className="text-white/50 italic font-serif">freedom</span> is at stake.</>
+                <>Defense when <span className="text-white/60 italic">freedom</span> is at stake.</>
               )}
             </h1>
-            <p className="text-lg text-white/70 max-w-md leading-relaxed">
-              {locale === "uk" 
-                ? "Суворе дотримання закону. Безкомпромісний захист ваших інтересів. Ми надаємо високорівневі правові стратегії для складних справ."
-                : "Strict adherence to the law. Uncompromising protection of your interests. We provide high-level legal strategies for complex cases."
-              }
+            
+            <p className="text-xl text-white/70 max-w-lg leading-relaxed">
+              {t.home.trustedBy}
             </p>
+            
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link href="/contact">
-                <Button size="lg" className="w-full sm:w-auto bg-white text-primary hover:bg-white/90">
+                <Button size="lg" className="w-full sm:w-auto bg-white text-primary hover:bg-white/90 px-8">
                   {t.home.consultation} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link href="/services">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-white/20 text-white hover:bg-white hover:text-primary">
-                  {locale === "uk" ? "Наші послуги" : "Our Services"}
+                <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-white/30 text-white hover:bg-white hover:text-primary px-8">
+                  {t.home.viewAllServices}
                 </Button>
               </Link>
             </div>
           </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="hidden md:block relative h-[500px]"
+            transition={{ duration: 1, delay: 0.3 }}
+            className="hidden lg:block"
           >
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[500px] border border-white/10 rotate-12" />
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[500px] border border-white/10 -rotate-6" />
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[450px] bg-white/5 overflow-hidden backdrop-blur-sm border border-white/20">
-               <img 
-                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
-                 alt={locale === "uk" ? "Юридичний офіс" : "Law Office"}
-                 className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
-               />
-             </div>
+            {/* Stats overlay */}
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 space-y-6">
+              {stats.map((stat, i) => (
+                <div key={i} className="flex items-center gap-4 text-white">
+                  <span className="text-4xl font-serif font-bold">{stat.value}</span>
+                  <span className="text-sm uppercase tracking-wider text-white/70">{stat.label}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* TRUST INDICATORS */}
-      <section className="bg-white border-b border-border">
-        <div className="container-wide py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
-            {stats.map((stat, i) => (
-              <div key={i} className="flex items-center justify-center gap-4 py-4 md:py-0">
-                <stat.icon className="h-10 w-10 text-primary/80 stroke-1" />
-                <div>
-                  <div className="text-3xl font-serif font-bold text-primary">{stat.value}</div>
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{stat.label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="section-padding bg-muted/30">
+      {/* SERVICES SECTION */}
+      <section className="py-24 bg-white">
         <div className="container-wide">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-4xl font-serif mb-4">{t.footer.practiceAreas}</h2>
-              <p className="text-muted-foreground">
-                {locale === "uk" 
-                  ? "Комплексна правова підтримка для фізичних та юридичних осіб. Ми спеціалізуємося на складних судових процесах та стратегічному захисті."
-                  : "Comprehensive legal support for individuals and legal entities. We specialize in complex litigation and strategic defense."
-                }
-              </p>
+              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 block">
+                {locale === "uk" ? "Напрямки практики" : "Practice Areas"}
+              </span>
+              <h2 className="text-4xl font-serif font-bold">{t.services.title}</h2>
             </div>
             <Link href="/services">
               <Button variant="link" className="text-primary h-auto p-0 group">
@@ -126,49 +127,119 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredServices.map((service, i) => (
-              <ServiceCard key={service.id} service={service} index={i} />
+            {services.map((service, i) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="group relative aspect-[4/3] overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-primary/90 group-hover:bg-primary/95 transition-colors" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-between text-white">
+                  <service.icon className="w-10 h-10 text-white/60" />
+                  <div>
+                    <h3 className="text-xl font-serif font-bold mb-2">{service.title}</h3>
+                    <p className="text-sm text-white/60 line-clamp-2">{service.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TEAM */}
-      <section className="section-padding bg-white">
-        <div className="container-wide">
-           <div className="text-center mb-16">
-              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2 block">
-                {locale === "uk" ? "Наші експерти" : "Our Experts"}
-              </span>
-              <h2 className="text-4xl font-serif">
-                {locale === "uk" ? "Команда адвокатів" : "Our Legal Team"}
-              </h2>
-           </div>
-
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredTeam.map((member) => (
-                <TeamCard key={member.id} member={member} />
-              ))}
-           </div>
+      {/* ABOUT SECTION */}
+      <section className="py-24 bg-muted/30">
+        <div className="container-wide grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 block">
+              {locale === "uk" ? "Про об'єднання" : "About Us"}
+            </span>
+            <h2 className="text-4xl font-serif font-bold mb-6">
+              {locale === "uk" 
+                ? "Команда професіоналів високого рівня" 
+                : "A Team of High-Level Professionals"
+              }
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              {locale === "uk"
+                ? "Адвокатське об'єднання «Яремчук і Седун» — це команда досвідчених фахівців зі спеціалізацією у різних галузях права, що дозволяє вирішувати будь-які завдання клієнта. Нам довіряють захист своїх інтересів приватні особи та компанії."
+                : "Law Firm 'Yaremchuk & Sedun' is a team of experienced specialists with expertise in various areas of law, allowing us to solve any client's tasks. Private individuals and companies trust us to protect their interests."
+              }
+            </p>
+            <Link href="/about">
+              <Button size="lg">
+                {t.home.learnMore} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+          <div className="relative">
+            <div className="aspect-[4/3] bg-primary/10 overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                alt={locale === "uk" ? "Офіс" : "Office"}
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* NEWS SECTION */}
+      {latestPosts.length > 0 && (
+        <section className="py-24 bg-white">
+          <div className="container-wide">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+              <div>
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 block">
+                  {locale === "uk" ? "Прес-центр" : "Press Center"}
+                </span>
+                <h2 className="text-4xl font-serif font-bold">{t.home.latestArticles}</h2>
+              </div>
+              <Link href="/blog">
+                <Button variant="link" className="text-primary h-auto p-0 group">
+                  {t.home.viewAllArticles} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {latestPosts.map((post) => (
+                <Link key={post.id} href={`/blog/${post.slug}`}>
+                  <article className="group h-full border border-border hover:border-primary/30 transition-colors">
+                    <div className="p-6 space-y-4">
+                      <div className="text-xs text-muted-foreground">
+                        {post.publishedAt && format(new Date(post.publishedAt), "d.MM.yyyy", { locale: dateLocale })}
+                      </div>
+                      <h3 className="font-serif font-bold text-primary group-hover:text-primary/80 transition-colors line-clamp-3">
+                        {post.title}
+                      </h3>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA SECTION */}
-      <section className="py-24 bg-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
-        <div className="container-wide relative z-10 text-center space-y-8">
-          <h2 className="text-3xl md:text-5xl font-serif">{t.home.ctaTitle}</h2>
-          <p className="text-white/60 max-w-xl mx-auto">
+      <section className="py-24 bg-primary text-white">
+        <div className="container-wide text-center space-y-8">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold">{t.home.ctaTitle}</h2>
+          <p className="text-white/60 max-w-xl mx-auto text-lg">
             {locale === "uk" 
               ? "Не дозволяйте ситуації загострюватися. Зверніться до нас для професійної оцінки вашої справи та розробки стратегії захисту."
               : "Don't let the situation escalate. Contact us for a professional assessment of your case and defense strategy development."
             }
           </p>
-          <div className="flex justify-center gap-4">
-             <Link href="/contact">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90">{t.home.scheduleConsultation}</Button>
-             </Link>
-          </div>
+          <Link href="/contact">
+            <Button size="lg" className="bg-white text-primary hover:bg-white/90 px-10">
+              {t.home.scheduleConsultation}
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

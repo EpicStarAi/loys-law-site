@@ -1,11 +1,12 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Menu, X, Facebook, Globe } from "lucide-react";
+import { Phone, Menu, X, Facebook, Globe, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { ChatWidget } from "./ChatWidget";
 import { useI18n } from "@/i18n/I18nProvider";
 import logoImage from "@assets/LOGO_LOYS_1767809243154.png";
+import { SiTelegram, SiViber, SiWhatsapp } from "react-icons/si";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,7 +24,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   const navItems = [
     { label: t.nav.home, href: "/" },
+    { label: t.nav.about, href: "/about" },
     { label: t.nav.services, href: "/services" },
+    { label: t.nav.team, href: "/team" },
     { label: t.nav.blog, href: "/blog" },
     { label: t.nav.contact, href: "/contact" },
   ];
@@ -64,7 +67,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-5">
             {navItems.map((item) => (
               <Link 
                 key={item.href} 
@@ -83,7 +86,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <button
               onClick={toggleLocale}
               className={cn(
-                "flex items-center gap-1.5 text-sm font-medium transition-all px-2 py-1 rounded",
+                "flex items-center gap-1.5 text-sm font-medium transition-all px-2 py-1",
                 isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
               )}
               data-testid="button-language-toggle"
@@ -105,7 +108,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           {/* Mobile Toggle */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={toggleLocale}
               className={cn(
@@ -133,7 +136,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 shadow-xl animate-in slide-in-from-top-5">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 shadow-xl animate-in slide-in-from-top-5">
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link 
@@ -145,6 +148,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   {item.label}
                 </Link>
               ))}
+              <Link 
+                href="/career"
+                className="text-lg font-serif font-medium text-foreground py-2 border-b border-border/50"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t.nav.career}
+              </Link>
               <Button className="w-full mt-4" onClick={() => window.location.href = "tel:+380977777600"}>
                 {t.nav.call}
               </Button>
@@ -173,36 +183,62 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <p className="text-white/60 max-w-sm leading-relaxed">
               {t.footer.description}
             </p>
+            <div className="flex gap-3 pt-2">
+              <a 
+                href="https://t.me/Ruslan_Yaremchuk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                data-testid="link-telegram"
+              >
+                <SiTelegram className="w-5 h-5" />
+              </a>
+              <a 
+                href="viber://chat?number=%2B380977777600" 
+                className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                data-testid="link-viber"
+              >
+                <SiViber className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://wa.me/380977777600" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                data-testid="link-whatsapp"
+              >
+                <SiWhatsapp className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://www.facebook.com/yaremchukandpartners/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                data-testid="link-facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
           </div>
           
           <div className="space-y-6">
             <h4 className="text-lg font-serif font-semibold">{t.footer.practiceAreas}</h4>
             <ul className="space-y-3 text-sm text-white/60">
               <li>{t.services.criminal}</li>
-              <li>{t.services.corporate}</li>
-              <li>{t.services.civil}</li>
-              <li>{t.services.family}</li>
               <li>{t.services.military}</li>
+              <li>{t.services.family}</li>
+              <li>{t.services.corporate}</li>
+              <li>{t.services.echr}</li>
             </ul>
           </div>
 
           <div className="space-y-6">
             <h4 className="text-lg font-serif font-semibold">{t.footer.contacts}</h4>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>{locale === "uk" ? "Київ, пр. Соборності, 19" : "19 Sobornosti Ave, Kyiv"}</li>
+              <li>{t.contact.kyivAddress}</li>
               <li>+380 97 777 76 00</li>
               <li>attorneysys@gmail.com</li>
-              <li><a href="https://t.me/Ruslan_Yaremchuk" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @Ruslan_Yaremchuk</a></li>
             </ul>
-            <a 
-              href="https://www.facebook.com/yaremchukandpartners/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mt-4"
-            >
-              <Facebook className="w-5 h-5" />
-              <span className="text-sm">Facebook</span>
-            </a>
           </div>
         </div>
         <div className="container-wide mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
@@ -213,6 +249,35 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </footer>
+      
+      {/* Messenger Widgets */}
+      <div className="fixed bottom-24 right-6 flex flex-col gap-3 z-40">
+        <a 
+          href="https://t.me/Ruslan_Yaremchuk" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-[#0088cc] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+          data-testid="widget-telegram"
+        >
+          <SiTelegram className="w-6 h-6" />
+        </a>
+        <a 
+          href="viber://chat?number=%2B380977777600"
+          className="w-12 h-12 bg-[#7360f2] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+          data-testid="widget-viber"
+        >
+          <SiViber className="w-6 h-6" />
+        </a>
+        <a 
+          href="https://wa.me/380977777600" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+          data-testid="widget-whatsapp"
+        >
+          <SiWhatsapp className="w-6 h-6" />
+        </a>
+      </div>
       
       <ChatWidget />
     </div>
