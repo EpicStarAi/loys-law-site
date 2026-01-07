@@ -5,7 +5,7 @@ import { useCreateInquiry } from "@/hooks/use-legal-data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import {
   Form,
   FormControl,
@@ -65,7 +65,7 @@ export default function Contact() {
                  </div>
                  <div>
                    <h3 className="font-semibold text-primary">Офіс у Києві</h3>
-                   <p className="text-muted-foreground">вул. Володимирська, 101, Київ, Україна 01033</p>
+                   <p className="text-muted-foreground">пр. Соборності, 19, Київ, Україна, 02160</p>
                  </div>
                </div>
                
@@ -82,6 +82,16 @@ export default function Contact() {
                <div className="flex gap-4">
                  <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
                    <Mail className="w-5 h-5 text-primary" />
+                 </div>
+                 <div>
+                   <h3 className="font-semibold text-primary">Email</h3>
+                   <a href="mailto:attorneysys@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">attorneysys@gmail.com</a>
+                 </div>
+               </div>
+
+               <div className="flex gap-4">
+                 <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
+                   <MessageCircle className="w-5 h-5 text-primary" />
                  </div>
                  <div>
                    <h3 className="font-semibold text-primary">Telegram</h3>

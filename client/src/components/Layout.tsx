@@ -154,10 +154,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="space-y-6">
             <h4 className="text-lg font-serif font-semibold">Контакти</h4>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>Київ, вул. Володимирська, 101</li>
+              <li>Київ, пр. Соборності, 19</li>
               <li>+380 97 777 76 00</li>
+              <li>attorneysys@gmail.com</li>
               <li>Telegram: @Ruslan_Yaremchuk</li>
-              <li>Пн-Пт: 09:00 - 18:00</li>
             </ul>
           </div>
         </div>
