@@ -7,6 +7,24 @@ const anthropic = new Anthropic({
   baseURL: process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL,
 });
 
+const systemPrompts = {
+  uk: `Ви — AI-асистент юридичної фірми «Яремчук і Седун» (Kyiv, Ukraine). 
+Ваша роль — надавати попередні юридичні консультації українською мовою.
+Будьте професійними, ввічливими та лаконічними.
+Завжди рекомендуйте особисту зустріч для детального аналізу справи.
+Не надавайте конкретних юридичних порад, а лише загальну інформацію.
+Наші напрямки практики: кримінальний захист, корпоративне право, цивільні спори, сімейне право, військове право, нерухомість.
+Контакти: +380 97 777 76 00, attorneysys@gmail.com, Telegram: @Ruslan_Yaremchuk`,
+
+  en: `You are an AI assistant for the law firm "Yaremchuk & Sedun" (Kyiv, Ukraine).
+Your role is to provide preliminary legal consultations in English.
+Be professional, polite, and concise.
+Always recommend a personal meeting for detailed case analysis.
+Do not provide specific legal advice, only general information.
+Our practice areas: criminal defense, corporate law, civil disputes, family law, military law, real estate.
+Contact: +380 97 777 76 00, attorneysys@gmail.com, Telegram: @Ruslan_Yaremchuk`,
+};
+
 export function registerChatRoutes(app: Express): void {
   // Get all conversations
   app.get("/api/conversations", async (req: Request, res: Response) => {
@@ -63,7 +81,7 @@ export function registerChatRoutes(app: Express): void {
   app.post("/api/conversations/:id/messages", async (req: Request, res: Response) => {
     try {
       const conversationId = parseInt(req.params.id);
-      const { content } = req.body;
+      const { content, language = "uk" } = req.body;
 
       // Save user message
       await chatStorage.createMessage(conversationId, "user", content);
@@ -75,6 +93,9 @@ export function registerChatRoutes(app: Express): void {
         content: m.content,
       }));
 
+      // Get system prompt based on language
+      const systemPrompt = systemPrompts[language as keyof typeof systemPrompts] || systemPrompts.uk;
+
       // Set up SSE
       res.setHeader("Content-Type", "text/event-stream");
       res.setHeader("Cache-Control", "no-cache");
@@ -84,6 +105,7 @@ export function registerChatRoutes(app: Express): void {
       const stream = anthropic.messages.stream({
         model: "claude-sonnet-4-5",
         max_tokens: 2048,
+        system: systemPrompt,
         messages: chatMessages,
       });
 
@@ -116,4 +138,3 @@ export function registerChatRoutes(app: Express): void {
     }
   });
 }
-

@@ -5,9 +5,11 @@ import { useChatWidget } from "@/hooks/use-chat-widget";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useEffect } from "react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export function ChatWidget() {
-  const { isOpen, toggleChat, messages, sendMessage, isStreaming, isLoading } = useChatWidget();
+  const { locale, t } = useI18n();
+  const { isOpen, toggleChat, messages, sendMessage, isStreaming, isLoading } = useChatWidget(locale);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -53,8 +55,8 @@ export function ChatWidget() {
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   <div>
-                    <h3 className="font-serif font-medium text-sm">Юридичний консультант</h3>
-                    <p className="text-[10px] text-white/60 uppercase tracking-wider">AI асистент</p>
+                    <h3 className="font-serif font-medium text-sm">{t.chat.title}</h3>
+                    <p className="text-[10px] text-white/60 uppercase tracking-wider">AI {locale === "uk" ? "асистент" : "assistant"}</p>
                   </div>
                 </div>
                 <Button 
@@ -72,7 +74,9 @@ export function ChatWidget() {
               <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/20 scrollbar-hide">
                 {messages.length === 0 && isLoading && (
                   <div className="flex justify-center p-4">
-                    <span className="animate-pulse text-xs text-muted-foreground">Підключення...</span>
+                    <span className="animate-pulse text-xs text-muted-foreground">
+                      {locale === "uk" ? "Підключення..." : "Connecting..."}
+                    </span>
                   </div>
                 )}
                 
@@ -120,7 +124,7 @@ export function ChatWidget() {
                 <form onSubmit={handleSubmit} className="flex gap-2">
                   <Input 
                     name="message" 
-                    placeholder="Опишіть вашу правову проблему..." 
+                    placeholder={t.chat.placeholder}
                     ref={inputRef}
                     autoComplete="off"
                     className="rounded-none border-0 bg-muted/50 focus-visible:ring-0 focus-visible:bg-white transition-colors"

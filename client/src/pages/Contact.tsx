@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Facebook } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 import {
   Form,
   FormControl,
@@ -24,6 +25,7 @@ import {
 
 export default function Contact() {
   const mutation = useCreateInquiry();
+  const { locale, t } = useI18n();
   
   const form = useForm<InsertInquiry>({
     resolver: zodResolver(insertInquirySchema),
@@ -46,9 +48,9 @@ export default function Contact() {
     <div className="min-h-screen">
       <div className="bg-primary text-white py-20">
         <div className="container-wide text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Контакти</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">{t.contact.title}</h1>
           <p className="text-white/60 max-w-xl mx-auto text-lg">
-            Готові обговорити вашу справу? Заповніть форму або завітайте до нашого офісу.
+            {t.contact.subtitle}
           </p>
         </div>
       </div>
@@ -57,15 +59,17 @@ export default function Contact() {
         {/* Info Column */}
         <div className="space-y-12">
            <div className="space-y-6">
-             <h2 className="text-2xl font-serif font-bold text-primary">Інформація про офіс</h2>
+             <h2 className="text-2xl font-serif font-bold text-primary">{t.contact.officeInfo}</h2>
              <div className="space-y-4">
                <div className="flex gap-4">
                  <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
                    <MapPin className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Офіс у Києві</h3>
-                   <p className="text-muted-foreground">пр. Соборності, 19, Київ, Україна, 02160</p>
+                   <h3 className="font-semibold text-primary">{t.contact.office}</h3>
+                   <p className="text-muted-foreground">
+                     {locale === "uk" ? "пр. Соборності, 19, Київ, Україна, 02160" : "19 Sobornosti Ave, Kyiv, Ukraine, 02160"}
+                   </p>
                  </div>
                </div>
                
@@ -74,7 +78,7 @@ export default function Contact() {
                    <Phone className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Телефон</h3>
+                   <h3 className="font-semibold text-primary">{t.contact.phone}</h3>
                    <p className="text-muted-foreground">+380 97 777 76 00</p>
                  </div>
                </div>
@@ -84,7 +88,7 @@ export default function Contact() {
                    <Mail className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Email</h3>
+                   <h3 className="font-semibold text-primary">{t.contact.email}</h3>
                    <a href="mailto:attorneysys@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">attorneysys@gmail.com</a>
                  </div>
                </div>
@@ -94,7 +98,7 @@ export default function Contact() {
                    <MessageCircle className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Telegram</h3>
+                   <h3 className="font-semibold text-primary">{t.contact.telegram}</h3>
                    <a href="https://t.me/Ruslan_Yaremchuk" className="text-muted-foreground hover:text-primary transition-colors">@Ruslan_Yaremchuk</a>
                  </div>
                </div>
@@ -104,8 +108,8 @@ export default function Contact() {
                    <Clock className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Графік роботи</h3>
-                   <p className="text-muted-foreground">Пн-Пт: 09:00 - 18:00</p>
+                   <h3 className="font-semibold text-primary">{t.contact.schedule}</h3>
+                   <p className="text-muted-foreground">{t.contact.scheduleTime}</p>
                  </div>
                </div>
 
@@ -124,13 +128,13 @@ export default function Contact() {
            {/* Placeholder Map */}
            <div className="h-[300px] w-full bg-muted border border-border relative overflow-hidden flex items-center justify-center">
               <div className="absolute inset-0 bg-primary/5"></div>
-              <span className="text-muted-foreground uppercase tracking-widest font-semibold">Інтеграція карти</span>
+              <span className="text-muted-foreground uppercase tracking-widest font-semibold">{t.contact.mapIntegration}</span>
            </div>
         </div>
 
         {/* Form Column */}
         <div className="bg-white border border-border p-8 md:p-10 shadow-lg">
-          <h2 className="text-2xl font-serif font-bold mb-6">Надіслати запит</h2>
+          <h2 className="text-2xl font-serif font-bold mb-6">{t.contact.sendRequest}</h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -139,9 +143,9 @@ export default function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Повне ім'я</FormLabel>
+                      <FormLabel>{t.contact.fullName}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Іван Петренко" {...field} data-testid="input-name" />
+                        <Input placeholder={locale === "uk" ? "Іван Петренко" : "John Smith"} {...field} data-testid="input-name" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -153,16 +157,16 @@ export default function Contact() {
                   name="type"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Тип клієнта</FormLabel>
+                      <FormLabel>{t.contact.clientType}</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger data-testid="select-type">
-                            <SelectValue placeholder="Оберіть тип" />
+                            <SelectValue placeholder={t.contact.selectType} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="individual">Фізична особа</SelectItem>
-                          <SelectItem value="corporate">Юридична особа</SelectItem>
+                          <SelectItem value="individual">{t.contact.individual}</SelectItem>
+                          <SelectItem value="corporate">{t.contact.corporate}</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -179,7 +183,7 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="ivan@example.com" {...field} data-testid="input-email" />
+                        <Input placeholder="email@example.com" {...field} data-testid="input-email" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -191,7 +195,7 @@ export default function Contact() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Телефон</FormLabel>
+                      <FormLabel>{t.contact.phoneLabel}</FormLabel>
                       <FormControl>
                         <Input placeholder="+380..." {...field} data-testid="input-phone" />
                       </FormControl>
@@ -206,9 +210,9 @@ export default function Contact() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Як ми можемо допомогти?</FormLabel>
+                    <FormLabel>{t.contact.howCanWeHelp}</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Коротко опишіть вашу ситуацію..." {...field} data-testid="input-message" />
+                      <Textarea placeholder={t.contact.messagePlaceholder} {...field} data-testid="input-message" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -222,7 +226,7 @@ export default function Contact() {
                 disabled={mutation.isPending}
                 data-testid="button-submit"
               >
-                {mutation.isPending ? "Надсилання..." : "Надіслати запит"}
+                {mutation.isPending ? t.contact.sending : t.contact.submit}
               </Button>
             </form>
           </Form>

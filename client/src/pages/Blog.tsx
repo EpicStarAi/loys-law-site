@@ -1,19 +1,28 @@
 import { usePosts } from "@/hooks/use-legal-data";
 import { Link } from "wouter";
 import { format } from "date-fns";
-import { uk } from "date-fns/locale";
+import { uk, enUS } from "date-fns/locale";
 import { ArrowRight, Bot } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 export default function Blog() {
   const { data: posts, isLoading } = usePosts();
+  const { locale, t } = useI18n();
+
+  const dateLocale = locale === "uk" ? uk : enUS;
 
   return (
     <div className="min-h-screen">
       <div className="bg-white border-b border-border py-20">
         <div className="container-wide">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">Юридичні статті</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+            {locale === "uk" ? "Юридичні статті" : "Legal Articles"}
+          </h1>
           <p className="text-muted-foreground max-w-2xl text-lg">
-            Аналіз законодавства, судової практики та новини від нашого аналітичного відділу на базі AI.
+            {locale === "uk" 
+              ? "Аналіз законодавства, судової практики та новини від нашого аналітичного відділу на базі AI."
+              : "Analysis of legislation, court practice and news from our AI-based analytics department."
+            }
           </p>
         </div>
       </div>
@@ -25,9 +34,9 @@ export default function Blog() {
              <div className="h-40 bg-muted animate-pulse" />
              <div className="h-40 bg-muted animate-pulse" />
           </div>
-        ) : (
+        ) : posts && posts.length > 0 ? (
           <div className="grid grid-cols-1 gap-12">
-            {posts?.map((post) => (
+            {posts.map((post) => (
               <article key={post.id} className="group flex flex-col md:flex-row gap-8 items-start border-b border-border pb-12">
                 <div className="w-full md:w-1/3 aspect-video bg-muted overflow-hidden">
                    {post.imageUrl ? (
@@ -41,10 +50,10 @@ export default function Blog() {
                 
                 <div className="flex-1 space-y-4">
                   <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
-                    <span>{post.publishedAt ? format(new Date(post.publishedAt), "d MMMM yyyy", { locale: uk }) : "Чернетка"}</span>
+                    <span>{post.publishedAt ? format(new Date(post.publishedAt), "d MMMM yyyy", { locale: dateLocale }) : (locale === "uk" ? "Чернетка" : "Draft")}</span>
                     {post.isAiGenerated && (
                       <span className="flex items-center gap-1 bg-primary/5 px-2 py-1 rounded-sm text-primary">
-                        <Bot className="w-3 h-3" /> AI аналіз
+                        <Bot className="w-3 h-3" /> {locale === "uk" ? "AI аналіз" : "AI analysis"}
                       </span>
                     )}
                   </div>
@@ -58,11 +67,15 @@ export default function Blog() {
                   </p>
                   
                   <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-sm font-medium text-primary mt-2 group-hover:underline underline-offset-4">
-                    Читати статтю <ArrowRight className="ml-2 w-4 h-4" />
+                    {t.blog.readMore} <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </div>
               </article>
             ))}
+          </div>
+        ) : (
+          <div className="text-center py-12 text-muted-foreground">
+            {t.blog.noArticles}
           </div>
         )}
       </div>
