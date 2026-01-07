@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { ChatWidget } from "./ChatWidget";
 import { useI18n } from "@/i18n/I18nProvider";
+import { ThemeToggle } from "./ThemeToggle";
 import logoImage from "@assets/LOGO_LOYS_1767809243154.png";
 import { SiTelegram, SiViber, SiWhatsapp } from "react-icons/si";
 
@@ -95,6 +96,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <span>{locale === "uk" ? "EN" : "UA"}</span>
             </button>
 
+            {/* Theme Toggle */}
+            <div className={cn(
+              isScrolled ? "text-foreground" : "text-white"
+            )}>
+              <ThemeToggle />
+            </div>
+
             <a href="tel:+380977777600">
               <Button 
                 variant={isScrolled ? "default" : "secondary"} 
@@ -120,6 +128,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <Globe className="h-5 w-5" />
               <span>{locale === "uk" ? "EN" : "UA"}</span>
             </button>
+            <div className={cn(
+              isScrolled || mobileMenuOpen ? "text-foreground" : "text-white"
+            )}>
+              <ThemeToggle />
+            </div>
             <button 
               className="p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
