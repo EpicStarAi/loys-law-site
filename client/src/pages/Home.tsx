@@ -16,6 +16,7 @@ import {
   Building,
   Landmark
 } from "lucide-react";
+import officeVideo from "@assets/video_2026-01-08_00-00-44_1767819964671.mp4";
 
 export default function Home() {
   const { data: posts } = usePosts();
@@ -41,15 +42,18 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      {/* HERO SECTION - Full screen with image */}
+      {/* HERO SECTION - Full screen with video */}
       <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=2000')"
-          }}
-        />
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={officeVideo} type="video/mp4" />
+        </video>
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
         
