@@ -64,13 +64,13 @@ export default function Blog() {
                   <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
                     <span>{post.publishedAt ? format(new Date(post.publishedAt), "d MMMM yyyy", { locale: dateLocale }) : (locale === "uk" ? "Чернетка" : "Draft")}</span>
                     {post.isAiGenerated && (
-                      <span className="flex items-center gap-1 bg-primary/5 px-2 py-1 text-primary">
+                      <span className="flex items-center gap-1 bg-muted px-2 py-1 text-foreground">
                         <Bot className="w-3 h-3" /> {locale === "uk" ? "AI аналіз" : "AI analysis"}
                       </span>
                     )}
                   </div>
                   
-                  <h2 className="text-2xl font-serif font-bold group-hover:text-primary/80 transition-colors">
+                  <h2 className="text-2xl font-serif font-bold text-foreground group-hover:text-foreground/80 transition-colors">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h2>
                   
@@ -78,7 +78,7 @@ export default function Blog() {
                     {post.summary}
                   </p>
                   
-                  <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-sm font-medium text-primary mt-2 group-hover:underline underline-offset-4">
+                  <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-sm font-medium text-foreground mt-2 group-hover:underline underline-offset-4">
                     {t.blog.readMore} <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </div>

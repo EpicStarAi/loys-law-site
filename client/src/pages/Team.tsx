@@ -27,7 +27,7 @@ export default function Team() {
       </section>
 
       {/* Team Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container-wide">
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -65,7 +65,7 @@ export default function Team() {
                   {/* Info */}
                   <div className="p-6 space-y-4">
                     <div>
-                      <h3 className="text-xl font-serif font-bold text-primary">{member.name}</h3>
+                      <h3 className="text-xl font-serif font-bold text-foreground">{member.name}</h3>
                       <p className="text-sm text-muted-foreground uppercase tracking-wider">{member.role}</p>
                     </div>
 

@@ -34,16 +34,16 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container-wide grid md:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl font-serif font-bold mb-6 text-primary">{t.about.mission}</h2>
+            <h2 className="text-3xl font-serif font-bold mb-6 text-foreground">{t.about.mission}</h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
               {t.about.missionText}
             </p>
           </div>
           <div>
-            <h2 className="text-3xl font-serif font-bold mb-6 text-primary">{t.about.history}</h2>
+            <h2 className="text-3xl font-serif font-bold mb-6 text-foreground">{t.about.history}</h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
               {t.about.historyText}
             </p>
@@ -63,7 +63,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-start gap-4 p-6 bg-white border border-border"
+                className="flex items-start gap-4 p-6 bg-card border border-border"
               >
                 <div className="w-12 h-12 bg-primary/10 flex items-center justify-center shrink-0">
                   <item.icon className="w-6 h-6 text-primary" />
@@ -76,9 +76,9 @@ export default function About() {
       </section>
 
       {/* Certificates */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container-wide max-w-3xl text-center">
-          <h2 className="text-3xl font-serif font-bold mb-6">{t.about.certificates}</h2>
+          <h2 className="text-3xl font-serif font-bold mb-6 text-foreground">{t.about.certificates}</h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
             {t.about.certificatesText}
           </p>

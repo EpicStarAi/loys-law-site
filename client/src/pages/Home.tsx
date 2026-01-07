@@ -110,14 +110,14 @@ export default function Home() {
       </section>
 
       {/* SERVICES SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-background">
         <div className="container-wide">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
               <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 block">
                 {locale === "uk" ? "Напрямки практики" : "Practice Areas"}
               </span>
-              <h2 className="text-4xl font-serif font-bold">{t.services.title}</h2>
+              <h2 className="text-4xl font-serif font-bold text-foreground">{t.services.title}</h2>
             </div>
             <Link href="/services">
               <Button variant="link" className="text-primary h-auto p-0 group">
@@ -157,7 +157,7 @@ export default function Home() {
             <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 block">
               {locale === "uk" ? "Про об'єднання" : "About Us"}
             </span>
-            <h2 className="text-4xl font-serif font-bold mb-6">
+            <h2 className="text-4xl font-serif font-bold mb-6 text-foreground">
               {locale === "uk" 
                 ? "Команда професіоналів високого рівня" 
                 : "A Team of High-Level Professionals"
@@ -189,14 +189,14 @@ export default function Home() {
 
       {/* NEWS SECTION */}
       {latestPosts.length > 0 && (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-background">
           <div className="container-wide">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
               <div>
                 <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 block">
                   {locale === "uk" ? "Прес-центр" : "Press Center"}
                 </span>
-                <h2 className="text-4xl font-serif font-bold">{t.home.latestArticles}</h2>
+                <h2 className="text-4xl font-serif font-bold text-foreground">{t.home.latestArticles}</h2>
               </div>
               <Link href="/blog">
                 <Button variant="link" className="text-primary h-auto p-0 group">
@@ -213,7 +213,7 @@ export default function Home() {
                       <div className="text-xs text-muted-foreground">
                         {post.publishedAt && format(new Date(post.publishedAt), "d.MM.yyyy", { locale: dateLocale })}
                       </div>
-                      <h3 className="font-serif font-bold text-primary group-hover:text-primary/80 transition-colors line-clamp-3">
+                      <h3 className="font-serif font-bold text-foreground group-hover:text-foreground/80 transition-colors line-clamp-3">
                         {post.title}
                       </h3>
                     </div>

@@ -69,7 +69,7 @@ export default function Contact() {
         {/* Info Column */}
         <div className="space-y-12">
           <div className="space-y-8">
-            <h2 className="text-2xl font-serif font-bold text-primary">{t.contact.officeInfo}</h2>
+            <h2 className="text-2xl font-serif font-bold text-foreground">{t.contact.officeInfo}</h2>
             
             {/* Kyiv Office */}
             <div className="border border-border p-6 space-y-4">
@@ -111,7 +111,7 @@ export default function Contact() {
                 <Clock className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold text-primary">{t.contact.schedule}</h3>
+                <h3 className="font-semibold text-foreground">{t.contact.schedule}</h3>
                 <p className="text-muted-foreground">{t.contact.scheduleTime}</p>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function Contact() {
                 <MessageCircle className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold text-primary mb-3">{t.contact.telegram}</h3>
+                <h3 className="font-semibold text-foreground mb-3">{t.contact.telegram}</h3>
                 <div className="flex gap-3">
                   <a 
                     href="https://t.me/Ruslan_Yaremchuk" 
@@ -156,7 +156,7 @@ export default function Contact() {
                 <FileText className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold text-primary">{t.contact.documents}</h3>
+                <h3 className="font-semibold text-foreground">{t.contact.documents}</h3>
                 <p className="text-muted-foreground text-sm">{t.contact.docsList}</p>
               </div>
             </div>
@@ -170,8 +170,8 @@ export default function Contact() {
         </div>
 
         {/* Form Column */}
-        <div className="bg-white border border-border p-8 md:p-10 shadow-lg h-fit">
-          <h2 className="text-2xl font-serif font-bold mb-6">{t.contact.sendRequest}</h2>
+        <div className="bg-card border border-border p-8 md:p-10 shadow-lg h-fit">
+          <h2 className="text-2xl font-serif font-bold mb-6 text-foreground">{t.contact.sendRequest}</h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField

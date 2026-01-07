@@ -93,7 +93,7 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
@@ -103,13 +103,13 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 viewport={{ once: true }}
-                className="group border border-border p-8 hover:border-primary/30 transition-colors"
+                className="group bg-card border border-border p-8 hover:border-foreground/30 transition-colors"
                 data-testid={`card-service-${service.id}`}
               >
-                <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 bg-muted flex items-center justify-center mb-6 group-hover:bg-muted/80 transition-colors">
+                  <service.icon className="w-7 h-7 text-foreground" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-primary mb-3">
+                <h3 className="text-xl font-serif font-bold text-foreground mb-3">
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -124,7 +124,7 @@ export default function Services() {
       {/* CTA */}
       <section className="py-20 bg-muted/30">
         <div className="container-wide text-center">
-          <h2 className="text-3xl font-serif font-bold mb-4">{t.home.ctaTitle}</h2>
+          <h2 className="text-3xl font-serif font-bold mb-4 text-foreground">{t.home.ctaTitle}</h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
             {t.home.ctaSubtitle}
           </p>

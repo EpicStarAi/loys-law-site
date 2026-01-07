@@ -33,7 +33,7 @@ export default function Career() {
       </section>
 
       {/* Vacancies */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="container-wide">
           <h2 className="text-3xl font-serif font-bold mb-8">{t.career.vacancies}</h2>
           
@@ -45,7 +45,7 @@ export default function Career() {
                   <Briefcase className="w-6 h-6 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-serif font-bold text-primary mb-2">{t.career.assistantTitle}</h3>
+                  <h3 className="text-xl font-serif font-bold text-foreground mb-2">{t.career.assistantTitle}</h3>
                   <p className="text-muted-foreground mb-4">{t.career.assistantDesc}</p>
                   <Link href="/contact">
                     <Button>
