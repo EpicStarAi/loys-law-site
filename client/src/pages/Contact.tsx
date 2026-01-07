@@ -75,7 +75,7 @@ export default function Contact() {
                  </div>
                  <div>
                    <h3 className="font-semibold text-primary">Телефон</h3>
-                   <p className="text-muted-foreground">+380 44 123 45 67</p>
+                   <p className="text-muted-foreground">+380 97 777 76 00</p>
                  </div>
                </div>
                
@@ -84,8 +84,8 @@ export default function Contact() {
                    <Mail className="w-5 h-5 text-primary" />
                  </div>
                  <div>
-                   <h3 className="font-semibold text-primary">Email</h3>
-                   <p className="text-muted-foreground">info@yaremchuk-sedun.ua</p>
+                   <h3 className="font-semibold text-primary">Telegram</h3>
+                   <a href="https://t.me/Ruslan_Yaremchuk" className="text-muted-foreground hover:text-primary transition-colors">@Ruslan_Yaremchuk</a>
                  </div>
                </div>
 

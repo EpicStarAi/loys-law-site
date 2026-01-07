@@ -72,14 +72,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {item.label}
               </Link>
             ))}
-            <a href="tel:+380441234567">
+            <a href="tel:+380977777600">
               <Button 
                 variant={isScrolled ? "default" : "secondary"} 
                 size="sm"
                 className="gap-2"
               >
                 <Phone className="h-4 w-4" />
-                <span>+380 44 123 45 67</span>
+                <span>+380 97 777 76 00</span>
               </Button>
             </a>
           </nav>
@@ -112,7 +112,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   {item.label}
                 </Link>
               ))}
-              <Button className="w-full mt-4" onClick={() => window.location.href = "tel:+380441234567"}>
+              <Button className="w-full mt-4" onClick={() => window.location.href = "tel:+380977777600"}>
                 Зателефонувати
               </Button>
             </nav>
@@ -153,8 +153,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <h4 className="text-lg font-serif font-semibold">Контакти</h4>
             <ul className="space-y-3 text-sm text-white/60">
               <li>Київ, вул. Володимирська, 101</li>
-              <li>+380 44 123 45 67</li>
-              <li>info@yaremchuk-sedun.ua</li>
+              <li>+380 97 777 76 00</li>
+              <li>Telegram: @Ruslan_Yaremchuk</li>
               <li>Пн-Пт: 09:00 - 18:00</li>
             </ul>
           </div>
