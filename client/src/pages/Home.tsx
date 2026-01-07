@@ -42,18 +42,15 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      {/* HERO SECTION - Full screen with video */}
+      {/* HERO SECTION - Full screen with image */}
       <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={officeVideo} type="video/mp4" />
-        </video>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=2000')"
+          }}
+        />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
         
@@ -181,11 +178,15 @@ export default function Home() {
           </div>
           <div className="relative">
             <div className="aspect-[4/3] bg-primary/10 overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
-                alt={locale === "uk" ? "Офіс" : "Office"}
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
+              >
+                <source src={officeVideo} type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
