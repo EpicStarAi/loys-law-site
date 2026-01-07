@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { ChatWidget } from "./ChatWidget";
+import { BackgroundMusic } from "./BackgroundMusic";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ThemeToggle } from "./ThemeToggle";
 import logoImage from "@assets/LOGO_LOYS_1767809243154.png";
@@ -293,6 +294,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </div>
       
       <ChatWidget />
+      <BackgroundMusic />
     </div>
   );
 }
