@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { ChatWidget } from "./ChatWidget";
-import logoImage from "@assets/LOGO_1767808755437.jpg";
+import logoImage from "@assets/LOGO_LOYS_1767809243154.png";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
