@@ -5,7 +5,7 @@ import { useCreateInquiry } from "@/hooks/use-legal-data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, Facebook } from "lucide-react";
 import {
   Form,
   FormControl,
@@ -106,6 +106,16 @@ export default function Contact() {
                  <div>
                    <h3 className="font-semibold text-primary">Графік роботи</h3>
                    <p className="text-muted-foreground">Пн-Пт: 09:00 - 18:00</p>
+                 </div>
+               </div>
+
+               <div className="flex gap-4">
+                 <div className="w-10 h-10 bg-muted flex items-center justify-center shrink-0">
+                   <Facebook className="w-5 h-5 text-primary" />
+                 </div>
+                 <div>
+                   <h3 className="font-semibold text-primary">Facebook</h3>
+                   <a href="https://www.facebook.com/yaremchukandpartners/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">yaremchukandpartners</a>
                  </div>
                </div>
              </div>

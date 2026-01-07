@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, Facebook } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -159,6 +159,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <li>attorneysys@gmail.com</li>
               <li>Telegram: @Ruslan_Yaremchuk</li>
             </ul>
+            <a 
+              href="https://www.facebook.com/yaremchukandpartners/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors mt-4"
+            >
+              <Facebook className="w-5 h-5" />
+              <span className="text-sm">Facebook</span>
+            </a>
           </div>
         </div>
         <div className="container-wide mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
