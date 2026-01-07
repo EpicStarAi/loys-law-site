@@ -1,9 +1,10 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Menu, X, Scale } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { ChatWidget } from "./ChatWidget";
+import logoImage from "@assets/LOGO_1767808755437.jpg";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,12 +36,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container-wide flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className={cn(
-              "p-2 rounded-none transition-colors",
-              isScrolled || mobileMenuOpen ? "bg-primary text-white" : "bg-white text-primary"
-            )}>
-              <Scale className="h-6 w-6" />
-            </div>
+            <img 
+              src={logoImage} 
+              alt="Яремчук і Седун" 
+              className="h-12 w-12 object-contain"
+            />
             <div className="flex flex-col">
               <span className={cn(
                 "text-xl font-serif font-bold leading-none tracking-tight",
@@ -128,9 +128,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container-wide grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-white text-primary">
-                <Scale className="h-6 w-6" />
-              </div>
+              <img 
+                src={logoImage} 
+                alt="Яремчук і Седун" 
+                className="h-12 w-12 object-contain"
+              />
               <span className="text-xl font-serif font-bold">ЯРЕМЧУК І СЕДУН</span>
             </div>
             <p className="text-white/60 max-w-sm leading-relaxed">
