@@ -1,15 +1,17 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Menu, X, Facebook } from "lucide-react";
+import { Phone, Menu, X, Facebook, Globe } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { ChatWidget } from "./ChatWidget";
+import { useI18n } from "@/i18n/I18nProvider";
 import logoImage from "@assets/LOGO_LOYS_1767809243154.png";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  const { locale, setLocale, t } = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +22,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   const navItems = [
-    { label: "Головна", href: "/" },
-    { label: "Послуги", href: "/services" },
-    { label: "Блог", href: "/blog" },
-    { label: "Контакти", href: "/contact" },
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.services, href: "/services" },
+    { label: t.nav.blog, href: "/blog" },
+    { label: t.nav.contact, href: "/contact" },
   ];
+
+  const toggleLocale = () => {
+    setLocale(locale === "uk" ? "en" : "uk");
+  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
@@ -38,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Link href="/" className="flex items-center gap-3 group">
             <img 
               src={logoImage} 
-              alt="Яремчук і Седун" 
+              alt="Yaremchuk & Sedun" 
               className="h-12 w-12 object-contain"
             />
             <div className="flex flex-col">
@@ -46,19 +52,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "text-xl font-serif font-bold leading-none tracking-tight",
                 isScrolled || mobileMenuOpen ? "text-primary" : "text-white"
               )}>
-                ЯРЕМЧУК І СЕДУН
+                {locale === "uk" ? "ЯРЕМЧУК І СЕДУН" : "YAREMCHUK & SEDUN"}
               </span>
               <span className={cn(
                 "text-[10px] uppercase tracking-widest opacity-80",
                 isScrolled || mobileMenuOpen ? "text-muted-foreground" : "text-white/80"
               )}>
-                Адвокатське об'єднання
+                {locale === "uk" ? "Адвокатське об'єднання" : "Law Firm"}
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <Link 
                 key={item.href} 
@@ -72,6 +78,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLocale}
+              className={cn(
+                "flex items-center gap-1.5 text-sm font-medium transition-all px-2 py-1 rounded",
+                isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
+              )}
+              data-testid="button-language-toggle"
+            >
+              <Globe className="h-4 w-4" />
+              <span>{locale === "uk" ? "EN" : "UA"}</span>
+            </button>
+
             <a href="tel:+380977777600">
               <Button 
                 variant={isScrolled ? "default" : "secondary"} 
@@ -85,17 +105,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           {/* Mobile Toggle */}
-          <button 
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            data-testid="button-mobile-menu"
-          >
-            {mobileMenuOpen ? (
-              <X className={cn("h-6 w-6", isScrolled ? "text-foreground" : "text-white")} />
-            ) : (
-              <Menu className={cn("h-6 w-6", isScrolled ? "text-foreground" : "text-white")} />
-            )}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleLocale}
+              className={cn(
+                "flex items-center gap-1 text-sm font-medium p-2",
+                isScrolled ? "text-foreground" : "text-white"
+              )}
+              data-testid="button-language-toggle-mobile"
+            >
+              <Globe className="h-5 w-5" />
+              <span>{locale === "uk" ? "EN" : "UA"}</span>
+            </button>
+            <button 
+              className="p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {mobileMenuOpen ? (
+                <X className={cn("h-6 w-6", isScrolled ? "text-foreground" : "text-white")} />
+              ) : (
+                <Menu className={cn("h-6 w-6", isScrolled ? "text-foreground" : "text-white")} />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -113,7 +146,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
               <Button className="w-full mt-4" onClick={() => window.location.href = "tel:+380977777600"}>
-                Зателефонувати
+                {t.nav.call}
               </Button>
             </nav>
           </div>
@@ -130,31 +163,33 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-3">
               <img 
                 src={logoImage} 
-                alt="Яремчук і Седун" 
+                alt="Yaremchuk & Sedun" 
                 className="h-12 w-12 object-contain"
               />
-              <span className="text-xl font-serif font-bold">ЯРЕМЧУК І СЕДУН</span>
+              <span className="text-xl font-serif font-bold">
+                {locale === "uk" ? "ЯРЕМЧУК І СЕДУН" : "YAREMCHUK & SEDUN"}
+              </span>
             </div>
             <p className="text-white/60 max-w-sm leading-relaxed">
-              Надаємо виняткове правове представництво з суворим дотриманням етики та професіоналізму. Ваші права — наш пріоритет.
+              {t.footer.description}
             </p>
           </div>
           
           <div className="space-y-6">
-            <h4 className="text-lg font-serif font-semibold">Напрямки практики</h4>
+            <h4 className="text-lg font-serif font-semibold">{t.footer.practiceAreas}</h4>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>Кримінальний захист</li>
-              <li>Корпоративне право</li>
-              <li>Цивільні спори</li>
-              <li>Сімейне право</li>
-              <li>Військове право</li>
+              <li>{t.services.criminal}</li>
+              <li>{t.services.corporate}</li>
+              <li>{t.services.civil}</li>
+              <li>{t.services.family}</li>
+              <li>{t.services.military}</li>
             </ul>
           </div>
 
           <div className="space-y-6">
-            <h4 className="text-lg font-serif font-semibold">Контакти</h4>
+            <h4 className="text-lg font-serif font-semibold">{t.footer.contacts}</h4>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>Київ, пр. Соборності, 19</li>
+              <li>{locale === "uk" ? "Київ, пр. Соборності, 19" : "19 Sobornosti Ave, Kyiv"}</li>
               <li>+380 97 777 76 00</li>
               <li>attorneysys@gmail.com</li>
               <li><a href="https://t.me/Ruslan_Yaremchuk" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Telegram: @Ruslan_Yaremchuk</a></li>
@@ -171,10 +206,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="container-wide mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
-          <p>© {new Date().getFullYear()} Яремчук і Седун. Всі права захищені.</p>
+          <p>© {new Date().getFullYear()} {locale === "uk" ? "Яремчук і Седун" : "Yaremchuk & Sedun"}. {t.footer.rights}</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <span>Політика конфіденційності</span>
-            <span>Умови використання</span>
+            <span>{t.footer.privacy}</span>
+            <span>{t.footer.terms}</span>
           </div>
         </div>
       </footer>
