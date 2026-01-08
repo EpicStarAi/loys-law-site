@@ -34,8 +34,8 @@ export function BackgroundMusic() {
       <audio
         ref={audioRef}
         loop
-        preload="none"
-        src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_d85cb30e90.mp3"
+        preload="auto"
+        src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Clair_de_Lune_%28Debussy%29.ogg"
       />
       <Button
         variant="ghost"
