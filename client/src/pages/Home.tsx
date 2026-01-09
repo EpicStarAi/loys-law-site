@@ -62,10 +62,6 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8 text-white"
           >
-            <div className="inline-block px-4 py-2 border border-white/20 text-xs uppercase tracking-[0.2em] text-white/80">
-              {locale === "uk" ? "Київ • Бровари" : "Kyiv • Brovary"}
-            </div>
-            
             <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight">
               {locale === "uk" ? (
                 <>Захист, коли на кону <span className="text-white/60 italic">свобода</span>.</>
