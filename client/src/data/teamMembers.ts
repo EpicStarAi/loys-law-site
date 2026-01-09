@@ -1,5 +1,6 @@
 import ruslanPhoto from "@assets/IMG_20260109_184044_863_1767977414366.jpg";
 import lyudmylaPhoto from "@assets/IMG_20260109_190624_677_1767978448763.jpg";
+import darynaPhoto from "@assets/7068_1767980214455.jpg";
 
 export interface TeamMemberData {
   id: string;
@@ -138,6 +139,63 @@ export const teamMembers: TeamMemberData[] = [
     values: {
       uk: "Аналітичне мислення та висока відповідальність у реалізації складних правових проектів — ключові риси Людмили як професіонала.",
       en: "Analytical thinking and high responsibility in implementing complex legal projects are Lyudmyla's key professional traits."
+    }
+  },
+  {
+    id: "3",
+    slug: "daryna-sedun",
+    name: { uk: "Седун Дарина Володимирівна", en: "Daryna Sedun" },
+    role: { uk: "Адвокат", en: "Attorney" },
+    quote: { 
+      uk: "Знайти спільну мову з будь-ким — це суперсила.", 
+      en: "Finding common ground with anyone is a superpower." 
+    },
+    bio: { 
+      uk: "Дарина Седун — адвокат з досвідом роботи у сфері банківського та земельного права. З 2019 року здійснює адвокатську діяльність, спеціалізуючись на спорах з банками, МФО та державними органами. Активно займається менторством молодших колег та волонтерською діяльністю.",
+      en: "Daryna Sedun is an attorney with experience in banking and land law. Since 2019, she has been practicing law, specializing in disputes with banks, microfinance organizations, and state authorities. She actively mentors junior colleagues and engages in volunteer activities."
+    },
+    photo: darynaPhoto,
+    education: {
+      uk: [
+        "Диплом спеціаліста з відзнакою, юридичний факультет КНУ імені Тараса Шевченка."
+      ],
+      en: [
+        "Specialist degree with honors, Faculty of Law, Taras Shevchenko National University of Kyiv."
+      ]
+    },
+    experience: {
+      uk: [
+        "2013–2019: старший юрист, помічник адвоката.",
+        "З 2019 року: адвокатська діяльність."
+      ],
+      en: [
+        "2013–2019: Senior lawyer, attorney's assistant.",
+        "Since 2019: Legal practice as an attorney."
+      ]
+    },
+    specialization: {
+      uk: ["Спори з банками та МФО", "Земельне право", "Спори з держорганами", "Захист за ст. 130 КУпАП"],
+      en: ["Bank & MFO Disputes", "Land Law", "State Authority Disputes", "Defense under Art. 130 CAO"]
+    },
+    achievements: {
+      uk: [
+        "Учасниця навчального візиту до Міжнародного кримінального суду в Гаазі (2024).",
+        "Учасниця навчання адвокатів у практиці воєнних злочинів у Варшаві (2025).",
+        "Менторка молодших колег у ГО «Юрфем».",
+        "Експертка клубу «Pravokator».",
+        "Волонтерка «Юрштаб»."
+      ],
+      en: [
+        "Participant of the study visit to the International Criminal Court in The Hague (2024).",
+        "Participant in training for lawyers on war crimes practice in Warsaw (2025).",
+        "Mentor for junior colleagues at NGO 'Yurfem'.",
+        "Expert at 'Pravokator' club.",
+        "Volunteer at 'Yurshtab'."
+      ]
+    },
+    values: {
+      uk: "Суперсила Дарини — знайти спільну мову з будь-ким. Її комунікативні здібності та емпатія допомагають будувати довірчі відносини з клієнтами та ефективно вирішувати найскладніші правові питання.",
+      en: "Daryna's superpower is finding common ground with anyone. Her communication skills and empathy help build trusting relationships with clients and effectively resolve the most complex legal issues."
     }
   }
 ];
