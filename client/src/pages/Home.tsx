@@ -178,11 +178,11 @@ export default function Home() {
             </Link>
           </div>
           <div className="relative">
-            <div className="aspect-[4/3] bg-primary/10 overflow-hidden">
+            <div className="bg-primary/10 overflow-hidden">
               <img
                 src={teamGroupPhoto}
                 alt={locale === "uk" ? "Команда адвокатів LOYS" : "LOYS Legal Team"}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>
           </div>
