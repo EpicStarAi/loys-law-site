@@ -18,6 +18,7 @@ import {
   Landmark
 } from "lucide-react";
 import officeVideo from "@assets/video_2026-01-08_00-00-44_1767819964671.mp4";
+import { teamMembers } from "@/data/teamMembers";
 
 export default function Home() {
   const { data: posts } = usePosts();
@@ -197,6 +198,73 @@ export default function Home() {
                 <source src={officeVideo} type="video/mp4" />
               </video>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TEAM SECTION */}
+      <section className="py-24 bg-background">
+        <div className="container-wide">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4 block">
+                {locale === "uk" ? "Наша команда" : "Our Team"}
+              </span>
+              <h2 className="text-4xl font-serif font-bold text-foreground">
+                {locale === "uk" ? "Досвідчені адвокати" : "Experienced Lawyers"}
+              </h2>
+            </div>
+            <Link href="/team">
+              <Button variant="link" className="text-primary h-auto p-0 group">
+                {locale === "uk" ? "Вся команда" : "Full Team"} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {teamMembers.map((member, i) => (
+              <Link key={member.id} href={`/team/${member.slug}`}>
+                <motion.article
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="group flex gap-6 p-6 border border-border hover:border-primary/30 transition-colors bg-card"
+                  data-testid={`card-home-team-${member.id}`}
+                >
+                  <div className="w-32 h-40 shrink-0 overflow-hidden">
+                    <img 
+                      src={member.photo} 
+                      alt={member.name[locale]}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center space-y-3">
+                    <div>
+                      <h3 className="text-xl font-serif font-bold text-foreground group-hover:text-primary transition-colors">
+                        {member.name[locale]}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {member.role[locale]}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {member.specialization[locale].slice(0, 2).map((spec, j) => (
+                        <span 
+                          key={j}
+                          className="text-xs px-2 py-1 bg-primary/5 text-primary/80"
+                        >
+                          {spec}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-sm text-muted-foreground line-clamp-2">
+                      {member.bio[locale]}
+                    </p>
+                  </div>
+                </motion.article>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
