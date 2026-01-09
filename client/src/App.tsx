@@ -11,6 +11,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Services from "@/pages/Services";
 import Team from "@/pages/Team";
+import TeamMember from "@/pages/TeamMember";
 import Career from "@/pages/Career";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
@@ -24,6 +25,7 @@ function Router() {
         <Route path="/about" component={About}/>
         <Route path="/services" component={Services}/>
         <Route path="/team" component={Team}/>
+        <Route path="/team/:slug" component={TeamMember}/>
         <Route path="/career" component={Career}/>
         <Route path="/blog" component={Blog}/>
         <Route path="/blog/:slug" component={BlogPost}/>

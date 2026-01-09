@@ -7,7 +7,6 @@ import { ChatWidget } from "./ChatWidget";
 import { BackgroundMusic } from "./BackgroundMusic";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ThemeToggle } from "./ThemeToggle";
-import logoImage from "@assets/LOGO_LOYS_1767809243154.png";
 import { SiTelegram, SiViber, SiWhatsapp } from "react-icons/si";
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -47,24 +46,31 @@ export function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container-wide flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <img 
-              src={logoImage} 
-              alt="Yaremchuk & Sedun" 
-              className="h-12 w-12 object-contain"
-            />
-            <div className="flex flex-col">
+            <div className="flex items-center">
               <span className={cn(
-                "text-xl font-serif font-bold leading-none tracking-tight",
-                isScrolled || mobileMenuOpen ? "text-primary" : "text-white"
+                "text-3xl font-serif font-normal tracking-[0.3em] leading-none",
+                isScrolled || mobileMenuOpen ? "text-primary" : "text-[#c9b896]"
               )}>
-                {locale === "uk" ? "ЯРЕМЧУК І СЕДУН" : "YAREMCHUK & SEDUN"}
+                LOYS
               </span>
               <span className={cn(
-                "text-[10px] uppercase tracking-widest opacity-80",
-                isScrolled || mobileMenuOpen ? "text-muted-foreground" : "text-white/80"
-              )}>
-                {locale === "uk" ? "Адвокатське об'єднання" : "Law Firm"}
-              </span>
+                "mx-3 h-10 w-px",
+                isScrolled || mobileMenuOpen ? "bg-primary/30" : "bg-[#c9b896]/40"
+              )} />
+              <div className="flex flex-col">
+                <span className={cn(
+                  "text-sm font-light leading-tight",
+                  isScrolled || mobileMenuOpen ? "text-primary" : "text-[#c9b896]"
+                )}>
+                  {locale === "uk" ? "Адвокатське об'єднання" : "Law office"}
+                </span>
+                <span className={cn(
+                  "text-sm font-light leading-tight",
+                  isScrolled || mobileMenuOpen ? "text-primary" : "text-[#c9b896]"
+                )}>
+                  {locale === "uk" ? "Яремчук і Седун" : "Yaremchuk & Sedun"}
+                </span>
+              </div>
             </div>
           </Link>
 
@@ -184,14 +190,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <footer className="bg-primary text-primary-foreground py-16 md:py-24 border-t border-white/10">
         <div className="container-wide grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2 space-y-6">
-            <div className="flex items-center gap-3">
-              <img 
-                src={logoImage} 
-                alt="Yaremchuk & Sedun" 
-                className="h-12 w-12 object-contain"
-              />
-              <span className="text-xl font-serif font-bold">
-                {locale === "uk" ? "ЯРЕМЧУК І СЕДУН" : "YAREMCHUK & SEDUN"}
+            <div className="flex flex-col gap-2">
+              <span className="text-3xl font-serif font-normal tracking-[0.3em] text-white">
+                LOYS
+              </span>
+              <span className="text-sm text-white/70">
+                {locale === "uk" ? "Закон на вашому боці" : "Law is on your side"}
               </span>
             </div>
             <p className="text-white/60 max-w-sm leading-relaxed">
