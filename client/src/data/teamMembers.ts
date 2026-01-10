@@ -86,63 +86,6 @@ export const teamMembers: TeamMemberData[] = [
   },
   {
     id: "2",
-    slug: "lyudmyla-bytsiura",
-    name: { uk: "Бицюра Людмила Володимирівна", en: "Lyudmyla Bytsiura" },
-    role: { uk: "Старший юрист", en: "Senior Lawyer" },
-    quote: { 
-      uk: "Аналітичне мислення та висока відповідальність — ключ до успіху у складних правових проектах.", 
-      en: "Analytical thinking and high responsibility are the keys to success in complex legal projects." 
-    },
-    bio: { 
-      uk: "Людмила Бицюра — досвідчений юрист з багаторічним стажем роботи в органах суддівського врядування. Глибоке розуміння судової системи та практики ЄСПЛ робить її незамінним фахівцем у складних справах.",
-      en: "Lyudmyla Bytsiura is an experienced lawyer with many years of experience in judicial governance bodies. Deep understanding of the judicial system and ECHR practice makes her an indispensable specialist in complex cases."
-    },
-    photo: lyudmylaPhoto,
-    education: {
-      uk: [
-        "Диплом магістра з відзнакою, юридичний факультет Національного університету біоресурсів і природокористування України.",
-        "Аспірантура з поглибленим дослідженням правозастосовної практики."
-      ],
-      en: [
-        "Master's degree with honors, Faculty of Law, National University of Life and Environmental Sciences of Ukraine.",
-        "Postgraduate studies with in-depth research on law enforcement practice."
-      ]
-    },
-    experience: {
-      uk: [
-        "З 2011 року — правове забезпечення діяльності органів суддівського врядування та супровід судових справ.",
-        "Верховний Суд: робота на посаді помічника судді Касаційного кримінального суду, всебічний юридичний супровід розгляду кримінальних справ.",
-        "Вища кваліфікаційна комісія суддів України: правове забезпечення діяльності Комісії."
-      ],
-      en: [
-        "Since 2011 — legal support for judicial governance bodies and court case management.",
-        "Supreme Court: worked as an assistant judge at the Criminal Court of Cassation, comprehensive legal support for criminal case review.",
-        "High Qualification Commission of Judges of Ukraine: legal support for the Commission's activities."
-      ]
-    },
-    specialization: {
-      uk: ["Сімейні спори", "Кримінальне право", "Практика ЄСПЛ"],
-      en: ["Family Disputes", "Criminal Law", "ECHR Practice"]
-    },
-    achievements: {
-      uk: [
-        "Багаторічний стаж дослідження актуальних питань правозастосовної практики.",
-        "Глибоке опанування методології аналізу судових рішень.",
-        "Досвід роботи у Верховному Суді України."
-      ],
-      en: [
-        "Many years of research experience on current issues of law enforcement practice.",
-        "Deep mastery of the methodology for analyzing court decisions.",
-        "Experience working at the Supreme Court of Ukraine."
-      ]
-    },
-    values: {
-      uk: "Аналітичне мислення та висока відповідальність у реалізації складних правових проектів — ключові риси Людмили як професіонала.",
-      en: "Analytical thinking and high responsibility in implementing complex legal projects are Lyudmyla's key professional traits."
-    }
-  },
-  {
-    id: "3",
     slug: "daryna-sedun",
     name: { uk: "Седун Дарина Володимирівна", en: "Daryna Sedun" },
     role: { uk: "Адвокат", en: "Attorney" },
@@ -196,6 +139,63 @@ export const teamMembers: TeamMemberData[] = [
     values: {
       uk: "Суперсила Дарини — знайти спільну мову з будь-ким. Її комунікативні здібності та емпатія допомагають будувати довірчі відносини з клієнтами та ефективно вирішувати найскладніші правові питання.",
       en: "Daryna's superpower is finding common ground with anyone. Her communication skills and empathy help build trusting relationships with clients and effectively resolve the most complex legal issues."
+    }
+  },
+  {
+    id: "3",
+    slug: "lyudmyla-bytsiura",
+    name: { uk: "Бицюра Людмила Володимирівна", en: "Lyudmyla Bytsiura" },
+    role: { uk: "Старший юрист", en: "Senior Lawyer" },
+    quote: { 
+      uk: "Аналітичне мислення та висока відповідальність — ключ до успіху у складних правових проектах.", 
+      en: "Analytical thinking and high responsibility are the keys to success in complex legal projects." 
+    },
+    bio: { 
+      uk: "Людмила Бицюра — досвідчений юрист з багаторічним стажем роботи в органах суддівського врядування. Глибоке розуміння судової системи та практики ЄСПЛ робить її незамінним фахівцем у складних справах.",
+      en: "Lyudmyla Bytsiura is an experienced lawyer with many years of experience in judicial governance bodies. Deep understanding of the judicial system and ECHR practice makes her an indispensable specialist in complex cases."
+    },
+    photo: lyudmylaPhoto,
+    education: {
+      uk: [
+        "Диплом магістра з відзнакою, юридичний факультет Національного університету біоресурсів і природокористування України.",
+        "Аспірантура з поглибленим дослідженням правозастосовної практики."
+      ],
+      en: [
+        "Master's degree with honors, Faculty of Law, National University of Life and Environmental Sciences of Ukraine.",
+        "Postgraduate studies with in-depth research on law enforcement practice."
+      ]
+    },
+    experience: {
+      uk: [
+        "З 2011 року — правове забезпечення діяльності органів суддівського врядування та супровід судових справ.",
+        "Верховний Суд: робота на посаді помічника судді Касаційного кримінального суду, всебічний юридичний супровід розгляду кримінальних справ.",
+        "Вища кваліфікаційна комісія суддів України: правове забезпечення діяльності Комісії."
+      ],
+      en: [
+        "Since 2011 — legal support for judicial governance bodies and court case management.",
+        "Supreme Court: worked as an assistant judge at the Criminal Court of Cassation, comprehensive legal support for criminal case review.",
+        "High Qualification Commission of Judges of Ukraine: legal support for the Commission's activities."
+      ]
+    },
+    specialization: {
+      uk: ["Сімейні спори", "Кримінальне право", "Практика ЄСПЛ"],
+      en: ["Family Disputes", "Criminal Law", "ECHR Practice"]
+    },
+    achievements: {
+      uk: [
+        "Багаторічний стаж дослідження актуальних питань правозастосовної практики.",
+        "Глибоке опанування методології аналізу судових рішень.",
+        "Досвід роботи у Верховному Суді України."
+      ],
+      en: [
+        "Many years of research experience on current issues of law enforcement practice.",
+        "Deep mastery of the methodology for analyzing court decisions.",
+        "Experience working at the Supreme Court of Ukraine."
+      ]
+    },
+    values: {
+      uk: "Аналітичне мислення та висока відповідальність у реалізації складних правових проектів — ключові риси Людмили як професіонала.",
+      en: "Analytical thinking and high responsibility in implementing complex legal projects are Lyudmyla's key professional traits."
     }
   }
 ];
