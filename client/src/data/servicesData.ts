@@ -310,6 +310,136 @@ export const servicesData: ServiceCategory[] = [
     ],
   },
   {
+    id: "investment-corporate",
+    name: "Захист інвестицій, корпоративне право",
+    nameEn: "Investment Protection, Corporate Law",
+    icon: "TrendingUp",
+    services: [
+      {
+        name: "Юридичний супровід інвестиційних проєктів",
+        nameEn: "Legal support for investment projects",
+        priceFrom: 30000,
+        note: "Залежить від обсягу та складності",
+        noteEn: "Depends on volume and complexity",
+      },
+      {
+        name: "Захист прав інвесторів",
+        nameEn: "Protection of investor rights",
+        priceFrom: 25000,
+      },
+      {
+        name: "Корпоративне структурування",
+        nameEn: "Corporate structuring",
+        priceFrom: 20000,
+      },
+      {
+        name: "Супровід корпоративних спорів",
+        nameEn: "Corporate dispute support",
+        priceFrom: 30000,
+      },
+      {
+        name: "Due diligence компаній",
+        nameEn: "Company due diligence",
+        priceFrom: 25000,
+      },
+    ],
+  },
+  {
+    id: "registration-copyright",
+    name: "Реєстраційні послуги та авторське право",
+    nameEn: "Registration Services and Copyright",
+    icon: "FileCheck",
+    services: [
+      {
+        name: "Реєстрація підприємств (ТОВ, ФОП)",
+        nameEn: "Business registration (LLC, Sole Proprietorship)",
+        priceFrom: 5000,
+      },
+      {
+        name: "Внесення змін до статутних документів",
+        nameEn: "Amendments to statutory documents",
+        priceFrom: 3000,
+      },
+      {
+        name: "Реєстрація авторського права",
+        nameEn: "Copyright registration",
+        priceFrom: 5000,
+      },
+      {
+        name: "Реєстрація торговельної марки",
+        nameEn: "Trademark registration",
+        priceFrom: 8000,
+        note: "Без врахування офіційних зборів",
+        noteEn: "Excluding official fees",
+      },
+      {
+        name: "Захист прав інтелектуальної власності",
+        nameEn: "Intellectual property protection",
+        priceFrom: 15000,
+      },
+    ],
+  },
+  {
+    id: "foreign-extradition",
+    name: "Правова допомога іноземцям та захист при екстрадиції",
+    nameEn: "Foreign Legal Aid and Extradition Defense",
+    icon: "Globe",
+    services: [
+      {
+        name: "Консультації для іноземців з правових питань",
+        nameEn: "Legal consultations for foreigners",
+        priceFrom: 2000,
+      },
+      {
+        name: "Оформлення документів для іноземців",
+        nameEn: "Document processing for foreigners",
+        priceFrom: 5000,
+      },
+      {
+        name: "Захист у справах про екстрадицію",
+        nameEn: "Defense in extradition cases",
+        priceFrom: 50000,
+        note: "Залежить від складності справи",
+        noteEn: "Depends on case complexity",
+      },
+      {
+        name: "Представництво інтересів іноземців у державних органах",
+        nameEn: "Representation of foreigners in government agencies",
+        priceFrom: 3000,
+        note: "За візит/процедуру",
+        noteEn: "Per visit/procedure",
+      },
+    ],
+  },
+  {
+    id: "traffic-accident",
+    name: "Захист при ДТП",
+    nameEn: "Traffic Accident Defense",
+    icon: "Car",
+    services: [
+      {
+        name: "Захист інтересів при ДТП (адміністративне провадження)",
+        nameEn: "Defense in traffic accidents (administrative proceedings)",
+        priceFrom: 10000,
+      },
+      {
+        name: "Захист у кримінальних справах, пов'язаних з ДТП",
+        nameEn: "Defense in criminal cases related to traffic accidents",
+        priceFrom: 30000,
+      },
+      {
+        name: "Відшкодування шкоди, завданої ДТП",
+        nameEn: "Compensation for damages caused by traffic accidents",
+        priceFrom: 15000,
+      },
+      {
+        name: "Оскарження постанов про порушення ПДР",
+        nameEn: "Appeal of traffic violation decisions",
+        priceFrom: 5000,
+      },
+    ],
+  },
+  {
     id: "other",
     name: "Інші послуги",
     nameEn: "Other Services",

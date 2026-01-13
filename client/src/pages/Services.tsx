@@ -16,7 +16,10 @@ import {
   MapPin,
   Gavel,
   MoreHorizontal,
-  ChevronDown
+  ChevronDown,
+  TrendingUp,
+  FileCheck,
+  Car
 } from "lucide-react";
 import { servicesData, type ServiceCategory } from "@/data/servicesData";
 import { useState } from "react";
@@ -36,6 +39,9 @@ const iconMap: Record<string, React.ElementType> = {
   MoreHorizontal,
   Medal,
   Globe,
+  TrendingUp,
+  FileCheck,
+  Car,
 };
 
 function formatPrice(priceFrom: number, priceTo: number | undefined, locale: string): string {
