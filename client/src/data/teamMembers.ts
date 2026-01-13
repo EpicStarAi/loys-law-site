@@ -197,5 +197,60 @@ export const teamMembers: TeamMemberData[] = [
       uk: "Аналітичне мислення та висока відповідальність у реалізації складних правових проектів — ключові риси Людмили як професіонала.",
       en: "Analytical thinking and high responsibility in implementing complex legal projects are Lyudmyla's key professional traits."
     }
+  },
+  {
+    id: "4",
+    slug: "solomia-lindberg",
+    name: { uk: "Ліндберг Соломія", en: "Solomia Lindberg" },
+    role: { uk: "Асистент", en: "Assistant" },
+    quote: { 
+      uk: "Право — це інструмент змін, і кожен може зробити свій внесок.", 
+      en: "Law is a tool for change, and everyone can make a contribution." 
+    },
+    bio: { 
+      uk: "Соломія Ліндберг — молодий спеціаліст, що здобуває освіту за спеціальністю право в Київській Школі Економіки. Має досвід участі в міжнародних освітніх програмах та активно розвивається в проєктному менеджменті та правничій практиці.",
+      en: "Solomia Lindberg is a young specialist pursuing a law degree at Kyiv School of Economics. She has experience in international educational programs and is actively developing in project management and legal practice."
+    },
+    photo: "",
+    education: {
+      uk: [
+        "2024–2028: Спеціальність право, Київська Школа Економіки (КШЕ).",
+        "Квітень–травень 2025: Учасниця «Riga Summer School on EU Law and Human Rights» за підтримки Riga Graduate School of Law."
+      ],
+      en: [
+        "2024–2028: Law major, Kyiv School of Economics (KSE).",
+        "April–May 2025: Participant in 'Riga Summer School on EU Law and Human Rights' supported by Riga Graduate School of Law."
+      ]
+    },
+    experience: {
+      uk: [
+        "2023–2024: Випускниця Української Академії Лідерства (УАЛ).",
+        "З жовтня 2024: Junior проєктний менеджер з організації STEM-подій при університеті.",
+        "З жовтня 2025: Асистент Студентської правничої лабораторії при університеті."
+      ],
+      en: [
+        "2023–2024: Graduate of Ukrainian Leadership Academy (ULA).",
+        "Since October 2024: Junior Project Manager for organizing STEM events at the university.",
+        "Since October 2025: Assistant at the Student Legal Lab at the university."
+      ]
+    },
+    specialization: {
+      uk: ["Право ЄС", "Права людини", "Проєктний менеджмент"],
+      en: ["EU Law", "Human Rights", "Project Management"]
+    },
+    achievements: {
+      uk: [
+        "Випускниця Української Академії Лідерства.",
+        "Учасниця міжнародної літньої школи з права ЄС та прав людини в Ризі."
+      ],
+      en: [
+        "Graduate of Ukrainian Leadership Academy.",
+        "Participant in international summer school on EU Law and Human Rights in Riga."
+      ]
+    },
+    values: {
+      uk: "Соломія поєднує академічну підготовку з практичним досвідом організації проєктів. Її участь у міжнародних освітніх програмах та робота в студентських організаціях формують унікальний погляд на правничу професію.",
+      en: "Solomia combines academic training with practical experience in project organization. Her participation in international educational programs and work in student organizations shapes a unique perspective on the legal profession."
+    }
   }
 ];

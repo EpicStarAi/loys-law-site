@@ -1,7 +1,7 @@
 import { useI18n } from "@/i18n/I18nProvider";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { teamMembers } from "@/data/teamMembers";
 
@@ -43,12 +43,18 @@ export default function Team() {
                 data-testid={`card-team-${member.id}`}
               >
                 <Link href={`/team/${member.slug}`} className="block">
-                  <div className="aspect-[3/4] overflow-hidden group cursor-pointer">
-                    <img 
-                      src={member.photo} 
-                      alt={member.name[locale]}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                    />
+                  <div className="aspect-[3/4] overflow-hidden group cursor-pointer bg-muted">
+                    {member.photo ? (
+                      <img 
+                        src={member.photo} 
+                        alt={member.name[locale]}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-primary/10">
+                        <User className="w-24 h-24 text-primary/40" />
+                      </div>
+                    )}
                   </div>
                 </Link>
 

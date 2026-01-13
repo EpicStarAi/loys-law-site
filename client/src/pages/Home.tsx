@@ -1,7 +1,7 @@
 import { usePosts } from "@/hooks/use-legal-data";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowRight, Scale, ShieldCheck, Award, Clock } from "lucide-react";
+import { ArrowRight, Scale, ShieldCheck, Award, Clock, User } from "lucide-react";
 import { motion } from "framer-motion";
 import { useI18n } from "@/i18n/I18nProvider";
 import { format } from "date-fns";
@@ -215,12 +215,18 @@ export default function Home() {
                   className="group flex gap-6 p-6 border border-border hover:border-primary/30 transition-colors bg-card"
                   data-testid={`card-home-team-${member.id}`}
                 >
-                  <div className="w-32 h-40 shrink-0 overflow-hidden">
-                    <img 
-                      src={member.photo} 
-                      alt={member.name[locale]}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                    />
+                  <div className="w-32 h-40 shrink-0 overflow-hidden bg-muted">
+                    {member.photo ? (
+                      <img 
+                        src={member.photo} 
+                        alt={member.name[locale]}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-primary/10">
+                        <User className="w-12 h-12 text-primary/40" />
+                      </div>
+                    )}
                   </div>
                   <div className="flex flex-col justify-center space-y-3">
                     <div>

@@ -1,7 +1,7 @@
 import { useRoute, Link } from "wouter";
 import { useI18n } from "@/i18n/I18nProvider";
 import { motion } from "framer-motion";
-import { ArrowLeft, GraduationCap, Briefcase, Award, Heart, Scale } from "lucide-react";
+import { ArrowLeft, GraduationCap, Briefcase, Award, Heart, Scale, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { teamMembers } from "@/data/teamMembers";
 
@@ -47,11 +47,17 @@ export default function TeamMember() {
               transition={{ duration: 0.6 }}
               className="aspect-[3/4] overflow-hidden"
             >
-              <img 
-                src={member.photo} 
-                alt={member.name[locale]}
-                className="w-full h-full object-cover"
-              />
+              {member.photo ? (
+                <img 
+                  src={member.photo} 
+                  alt={member.name[locale]}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-white/10">
+                  <User className="w-32 h-32 text-white/40" />
+                </div>
+              )}
             </motion.div>
             
             <motion.div
