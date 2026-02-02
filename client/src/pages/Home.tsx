@@ -74,6 +74,25 @@ export default function Home() {
               {t.home.trustedBy}
             </p>
             
+            {/* Quick Navigation Links */}
+            <div className="flex flex-wrap gap-x-6 gap-y-2 border-l border-white/20 pl-6 py-2">
+              <Link href="/about" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors">
+                {t.nav.about}
+              </Link>
+              <Link href="/services" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors">
+                {t.nav.services}
+              </Link>
+              <Link href="/team" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors">
+                {t.nav.team}
+              </Link>
+              <Link href="/career" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors">
+                {t.nav.career}
+              </Link>
+              <Link href="/blog" className="text-sm uppercase tracking-widest text-white/60 hover:text-white transition-colors">
+                {t.nav.blog}
+              </Link>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link href="/contact">
                 <Button size="lg" className="w-full sm:w-auto bg-white text-primary hover:bg-white/90 px-8">
