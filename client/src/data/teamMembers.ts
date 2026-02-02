@@ -211,7 +211,7 @@ export const teamMembers: TeamMemberData[] = [
       uk: "Соломія Ліндберг — молодий спеціаліст, що здобуває освіту за спеціальністю право в Київській Школі Економіки. Має досвід участі в міжнародних освітніх програмах та активно розвивається в проєктному менеджменті та правничій практиці.",
       en: "Solomia Lindberg is a young specialist pursuing a law degree at Kyiv School of Economics. She has experience in international educational programs and is actively developing in project management and legal practice."
     },
-    photo: "",
+    photo: "/src/assets/solomiya.jpg",
     education: {
       uk: [
         "2024–2028: Спеціальність право, Київська Школа Економіки (КШЕ).",
