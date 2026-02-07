@@ -1,10 +1,16 @@
+import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import path from "path";
 
 const app = express();
 const httpServer = createServer(app);
+
+// Serve attached_assets as /assets in all modes (needed for DB-stored photoUrl paths)
+const assetsPath = path.resolve(import.meta.dirname, "..", "attached_assets");
+app.use("/assets", express.static(assetsPath));
 
 declare module "http" {
   interface IncomingMessage {
@@ -85,14 +91,7 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
-  httpServer.listen(
-    {
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    },
-    () => {
-      log(`serving on port ${port}`);
-    },
-  );
+  httpServer.listen(port, () => {
+    log(`serving on port ${port}`);
+  });
 })();

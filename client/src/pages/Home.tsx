@@ -27,12 +27,14 @@ export default function Home() {
   const latestPosts = posts?.slice(0, 4) || [];
 
   const services = [
-    { id: "criminal", icon: ShieldAlert, title: t.services.criminal, desc: t.services.criminalDesc },
-    { id: "military", icon: Medal, title: t.services.military, desc: t.services.militaryDesc },
-    { id: "family", icon: Users, title: t.services.family, desc: t.services.familyDesc },
-    { id: "civil", icon: Scale, title: t.services.civil, desc: t.services.civilDesc },
-    { id: "echr", icon: Globe, title: t.services.echr, desc: t.services.echrDesc },
-    { id: "corporate", icon: Briefcase, title: t.services.corporate, desc: t.services.corporateDesc },
+    { id: "criminal", icon: ShieldAlert, title: t.services.criminal, desc: t.services.criminalDesc, href: "/services#criminal" },
+    { id: "military", icon: Medal, title: t.services.military, desc: t.services.militaryDesc, href: "/services#military" },
+    { id: "family", icon: Users, title: t.services.family, desc: t.services.familyDesc, href: "/services#family" },
+    { id: "civil", icon: Scale, title: t.services.civil, desc: t.services.civilDesc, href: "/services#civil" },
+    { id: "echr", icon: Globe, title: t.services.echr, desc: t.services.echrDesc, href: "/services#echr" },
+    { id: "corporate", icon: Briefcase, title: t.services.corporate, desc: t.services.corporateDesc, href: "/services#corporate" },
+    { id: "investment", icon: Building, title: t.services.investment, desc: t.services.investmentDesc, href: "/services#investment" },
+    { id: "foreign", icon: Landmark, title: t.services.foreign, desc: t.services.foreignDesc, href: "/services#foreign" },
   ];
 
   const stats = [
@@ -145,23 +147,24 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                viewport={{ once: true }}
-                className="group relative aspect-[4/3] overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-primary/90 group-hover:bg-primary/95 transition-colors" />
-                <div className="absolute inset-0 p-8 flex flex-col justify-between text-white">
-                  <service.icon className="w-10 h-10 text-white/60" />
-                  <div>
-                    <h3 className="text-xl font-serif font-bold mb-2">{service.title}</h3>
-                    <p className="text-sm text-white/60 line-clamp-2">{service.desc}</p>
+              <Link key={service.id} href={service.href}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  viewport={{ once: true }}
+                  className="group relative aspect-[4/3] overflow-hidden cursor-pointer rounded-lg transition-transform hover:scale-105"
+                >
+                  <div className="absolute inset-0 bg-primary/90 group-hover:bg-primary/95 transition-colors" />
+                  <div className="absolute inset-0 p-8 flex flex-col justify-between text-white">
+                    <service.icon className="w-10 h-10 text-white/60 group-hover:text-white/80 transition-colors" />
+                    <div>
+                      <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-white/90 transition-colors">{service.title}</h3>
+                      <p className="text-sm text-white/60 line-clamp-2 group-hover:text-white/70 transition-colors">{service.desc}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </div>

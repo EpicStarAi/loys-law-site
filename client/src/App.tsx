@@ -13,6 +13,7 @@ import Services from "@/pages/Services";
 import Team from "@/pages/Team";
 import TeamMember from "@/pages/TeamMember";
 import Career from "@/pages/Career";
+import Internship from "@/pages/Internship";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Contact from "@/pages/Contact";
@@ -27,6 +28,7 @@ function Router() {
         <Route path="/team" component={Team}/>
         <Route path="/team/:slug" component={TeamMember}/>
         <Route path="/career" component={Career}/>
+        <Route path="/internship" component={Internship}/>
         <Route path="/blog" component={Blog}/>
         <Route path="/blog/:slug" component={BlogPost}/>
         <Route path="/contact" component={Contact}/>

@@ -1,17 +1,16 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Menu, X, Facebook, Globe, MessageCircle } from "lucide-react";
+import { Phone, Globe, Facebook, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { ChatWidget } from "./ChatWidget";
-import { BackgroundMusic } from "./BackgroundMusic";
+import MusicPlayer from "./MusicPlayer";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ThemeToggle } from "./ThemeToggle";
 import { SiTelegram, SiViber, SiWhatsapp } from "react-icons/si";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location] = useLocation();
   const { locale, setLocale, t } = useI18n();
 
@@ -28,6 +27,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     { label: t.nav.about, href: "/about" },
     { label: t.nav.services, href: "/services" },
     { label: t.nav.team, href: "/team" },
+    { label: t.nav.career, href: "/career" },
     { label: t.nav.blog, href: "/blog" },
     { label: t.nav.contact, href: "/contact" },
   ];
@@ -41,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-          isScrolled || mobileMenuOpen ? "bg-background/95 backdrop-blur-md border-border py-3 shadow-sm" : "bg-transparent py-6 text-white"
+          isScrolled ? "bg-background/95 backdrop-blur-md border-border py-3 shadow-sm" : "bg-transparent py-6 text-white"
         )}
       >
         <div className="container-wide flex items-center justify-between">
@@ -49,24 +49,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center">
               <span className={cn(
                 "text-3xl font-serif font-normal tracking-[0.3em] leading-none",
-                isScrolled || mobileMenuOpen ? "text-primary" : "text-[#c9b896]"
+                isScrolled ? "text-primary" : "text-[#c9b896]"
               )}>
                 LOYS
               </span>
               <span className={cn(
                 "mx-3 h-10 w-px",
-                isScrolled || mobileMenuOpen ? "bg-primary/30" : "bg-[#c9b896]/40"
+                isScrolled ? "bg-primary/30" : "bg-[#c9b896]/40"
               )} />
               <div className="flex flex-col">
                 <span className={cn(
                   "text-sm font-light leading-tight",
-                  isScrolled || mobileMenuOpen ? "text-primary" : "text-[#c9b896]"
+                  isScrolled ? "text-primary" : "text-[#c9b896]"
                 )}>
                   {locale === "uk" ? "Адвокатське об'єднання" : "Law office"}
                 </span>
                 <span className={cn(
                   "text-sm font-light leading-tight",
-                  isScrolled || mobileMenuOpen ? "text-primary" : "text-[#c9b896]"
+                  isScrolled ? "text-primary" : "text-[#c9b896]"
                 )}>
                   {locale === "uk" ? "Яремчук і Седун" : "Yaremchuk & Sedun"}
                 </span>
@@ -74,14 +74,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-5">
+          {/* Navigation - Always Visible */}
+          <nav className="flex items-center gap-3 sm:gap-4 lg:gap-5 flex-wrap">
             {navItems.map((item) => (
               <Link 
                 key={item.href} 
                 href={item.href}
                 className={cn(
-                  "text-sm uppercase tracking-wider font-medium hover:text-opacity-70 transition-all",
+                  "text-xs sm:text-sm uppercase tracking-wider font-medium hover:text-opacity-70 transition-all whitespace-nowrap",
                   isScrolled ? "text-foreground" : "text-white",
                   location === item.href && "border-b-2 border-current pb-1"
                 )}
@@ -90,97 +90,43 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
             
-            {/* Language Switcher */}
-            <button
-              onClick={toggleLocale}
-              className={cn(
-                "flex items-center gap-1.5 text-sm font-medium transition-all px-2 py-1",
-                isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
-              )}
-              data-testid="button-language-toggle"
-            >
-              <Globe className="h-4 w-4" />
-              <span>{locale === "uk" ? "EN" : "UA"}</span>
-            </button>
-
-            {/* Theme Toggle */}
-            <div className={cn(
-              isScrolled ? "text-foreground" : "text-white"
-            )}>
-              <ThemeToggle />
-            </div>
-
-            <a href="tel:+380977777600">
-              <Button 
-                variant={isScrolled ? "default" : "secondary"} 
-                size="sm"
-                className="gap-2"
+            {/* Controls */}
+            <div className="flex items-center gap-1 sm:gap-2 ml-2">
+              {/* Language Switcher */}
+              <button
+                onClick={toggleLocale}
+                className={cn(
+                  "flex items-center gap-1 text-xs sm:text-sm font-medium transition-all px-2 py-1 rounded",
+                  isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
+                )}
+                data-testid="button-language-toggle"
               >
-                <Phone className="h-4 w-4" />
-                <span>+380 97 777 76 00</span>
-              </Button>
-            </a>
-          </nav>
+                <Globe className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span>{locale === "uk" ? "EN" : "UA"}</span>
+              </button>
 
-          {/* Mobile Toggle */}
-          <div className="lg:hidden flex items-center gap-2">
-            <button
-              onClick={toggleLocale}
-              className={cn(
-                "flex items-center gap-1 text-sm font-medium p-2",
+              {/* Theme Toggle */}
+              <div className={cn(
                 isScrolled ? "text-foreground" : "text-white"
-              )}
-              data-testid="button-language-toggle-mobile"
-            >
-              <Globe className="h-5 w-5" />
-              <span>{locale === "uk" ? "EN" : "UA"}</span>
-            </button>
-            <div className={cn(
-              isScrolled || mobileMenuOpen ? "text-foreground" : "text-white"
-            )}>
-              <ThemeToggle />
-            </div>
-            <button 
-              className="p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              data-testid="button-mobile-menu"
-            >
-              {mobileMenuOpen ? (
-                <X className={cn("h-6 w-6", isScrolled ? "text-foreground" : "text-white")} />
-              ) : (
-                <Menu className={cn("h-6 w-6", isScrolled ? "text-foreground" : "text-white")} />
-              )}
-            </button>
-          </div>
-        </div>
+              )}>
+                <ThemeToggle />
+              </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 shadow-xl animate-in slide-in-from-top-5">
-            <nav className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <Link 
-                  key={item.href} 
-                  href={item.href}
-                  className="text-lg font-serif font-medium text-foreground py-2 border-b border-border/50"
-                  onClick={() => setMobileMenuOpen(false)}
+              {/* Phone */}
+              <a href="tel:+380977777600" className="hidden sm:block">
+                <Button 
+                  variant={isScrolled ? "default" : "secondary"} 
+                  size="sm"
+                  className="gap-2"
                 >
-                  {item.label}
-                </Link>
-              ))}
-              <Link 
-                href="/career"
-                className="text-lg font-serif font-medium text-foreground py-2 border-b border-border/50"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t.nav.career}
-              </Link>
-              <Button className="w-full mt-4" onClick={() => window.location.href = "tel:+380977777600"}>
-                {t.nav.call}
-              </Button>
-            </nav>
-          </div>
-        )}
+                  <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden md:block">+380 97 777 76 00</span>
+                  <span className="md:hidden">Тел.</span>
+                </Button>
+              </a>
+            </div>
+          </nav>
+        </div>
       </header>
 
       <main className="flex-1 pt-0">
@@ -298,7 +244,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </div>
       
       <ChatWidget />
-      <BackgroundMusic />
+      <MusicPlayer />
     </div>
   );
 }

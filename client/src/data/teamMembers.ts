@@ -1,6 +1,9 @@
 import ruslanPhoto from "@assets/IMG_20260109_184044_863_1767977414366.jpg";
 import lyudmylaPhoto from "@assets/IMG_20260109_190624_677_1767978448763.jpg";
 import darynaPhoto from "@assets/7068_1767980214455.jpg";
+import solomiyaPhoto from "@assets/SOLOMIYA_1770016018040.jpg";
+import kovalenkoPhoto from "@assets/kovalenko_oleksandr.jpg";
+import marchenkoPhoto from "@assets/marchenko_nataliia.jpg";
 
 export interface TeamMemberData {
   id: string;
@@ -211,7 +214,7 @@ export const teamMembers: TeamMemberData[] = [
       uk: "Соломія Ліндберг — молодий спеціаліст, що здобуває освіту за спеціальністю право в Київській Школі Економіки. Має досвід участі в міжнародних освітніх програмах та активно розвивається в проєктному менеджменті та правничій практиці.",
       en: "Solomia Lindberg is a young specialist pursuing a law degree at Kyiv School of Economics. She has experience in international educational programs and is actively developing in project management and legal practice."
     },
-    photo: "/src/assets/solomiya.jpg",
+    photo: solomiyaPhoto,
     education: {
       uk: [
         "2024–2028: Спеціальність право, Київська Школа Економіки (КШЕ).",
@@ -251,6 +254,124 @@ export const teamMembers: TeamMemberData[] = [
     values: {
       uk: "Соломія поєднує академічну підготовку з практичним досвідом організації проєктів. Її участь у міжнародних освітніх програмах та робота в студентських організаціях формують унікальний погляд на правничу професію.",
       en: "Solomia combines academic training with practical experience in project organization. Her participation in international educational programs and work in student organizations shapes a unique perspective on the legal profession."
+    }
+  },
+  {
+    id: "5",
+    slug: "oleksandr-kovalenko",
+    name: { uk: "Коваленко Олександр Ігорович", en: "Oleksandr Kovalenko" },
+    role: { uk: "Адвокат", en: "Attorney" },
+    quote: {
+      uk: "Справжній адвокат бачить рішення там, де інші бачать лише проблему.",
+      en: "A true attorney sees a solution where others see only a problem."
+    },
+    bio: {
+      uk: "Олександр Коваленко — адвокат із багаторічним досвідом у сфері господарського та корпоративного права. Спеціалізується на супроводі бізнесу, договірному праві та вирішенні комерційних спорів. Відомий системним підходом та увагою до деталей.",
+      en: "Oleksandr Kovalenko is an attorney with extensive experience in commercial and corporate law. He specializes in business support, contract law, and resolution of commercial disputes. Known for his systematic approach and attention to detail."
+    },
+    photo: kovalenkoPhoto,
+    education: {
+      uk: [
+        "Національний юридичний університет імені Ярослава Мудрого (2008–2013): Магістр права з відзнакою.",
+        "Курси підвищення кваліфікації з міжнародного арбітражу (2019)."
+      ],
+      en: [
+        "Yaroslav Mudryi National Law University (2008–2013): Master of Law with honors.",
+        "Advanced training courses in international arbitration (2019)."
+      ]
+    },
+    experience: {
+      uk: [
+        "2013–2016: Юрист у провідній юридичній компанії м. Києва.",
+        "2016–2019: Старший юрист, спеціалізація на корпоративних спорах.",
+        "З 2019 року: Адвокатська діяльність, супровід бізнесу та комерційних операцій."
+      ],
+      en: [
+        "2013–2016: Lawyer at a leading law firm in Kyiv.",
+        "2016–2019: Senior lawyer, specializing in corporate disputes.",
+        "Since 2019: Legal practice, business support and commercial transactions."
+      ]
+    },
+    specialization: {
+      uk: ["Господарське право", "Корпоративне право", "Договірне право", "Комерційні спори"],
+      en: ["Commercial Law", "Corporate Law", "Contract Law", "Commercial Disputes"]
+    },
+    achievements: {
+      uk: [
+        "Успішний супровід понад 150 корпоративних угод.",
+        "Досвід представництва у господарських судах усіх інстанцій.",
+        "Спікер на юридичних конференціях з питань корпоративного права.",
+        "Член Асоціації правників України."
+      ],
+      en: [
+        "Successful support of over 150 corporate deals.",
+        "Experience in representation in commercial courts of all instances.",
+        "Speaker at legal conferences on corporate law issues.",
+        "Member of the Ukrainian Bar Association."
+      ]
+    },
+    values: {
+      uk: "Олександр вірить, що якісна правова допомога — це основа стабільного бізнесу. Його аналітичний розум та стратегічне мислення дозволяють знаходити оптимальні рішення навіть у найскладніших комерційних спорах.",
+      en: "Oleksandr believes that quality legal assistance is the foundation of a stable business. His analytical mind and strategic thinking allow him to find optimal solutions even in the most complex commercial disputes."
+    }
+  },
+  {
+    id: "6",
+    slug: "nataliia-marchenko",
+    name: { uk: "Марченко Наталія Сергіївна", en: "Nataliia Marchenko" },
+    role: { uk: "Адвокат", en: "Attorney" },
+    quote: {
+      uk: "Закон має служити людям, а не навпаки.",
+      en: "The law should serve people, not the other way around."
+    },
+    bio: {
+      uk: "Наталія Марченко — адвокат, яка спеціалізується на захисті прав людини, сімейному праві та трудових спорах. Має значний досвід у справах, пов'язаних із захистом прав дітей та жінок. Відома своїм емпатичним підходом та рішучістю у захисті інтересів клієнтів.",
+      en: "Nataliia Marchenko is an attorney specializing in human rights protection, family law, and labor disputes. She has significant experience in cases related to the protection of children's and women's rights. Known for her empathetic approach and determination in defending clients' interests."
+    },
+    photo: marchenkoPhoto,
+    education: {
+      uk: [
+        "Київський національний університет імені Тараса Шевченка (2010–2015): Юридичний факультет, магістр права.",
+        "Стажування в Європейському суді з прав людини (2018)."
+      ],
+      en: [
+        "Taras Shevchenko National University of Kyiv (2010–2015): Faculty of Law, Master of Law.",
+        "Internship at the European Court of Human Rights (2018)."
+      ]
+    },
+    experience: {
+      uk: [
+        "2015–2018: Помічник адвоката у сфері сімейного права.",
+        "2018–2021: Юрист у правозахисній організації.",
+        "З 2021 року: Адвокатська діяльність з фокусом на захист прав людини та сімейне право."
+      ],
+      en: [
+        "2015–2018: Attorney's assistant in family law.",
+        "2018–2021: Lawyer at a human rights organization.",
+        "Since 2021: Legal practice focused on human rights protection and family law."
+      ]
+    },
+    specialization: {
+      uk: ["Сімейне право", "Захист прав людини", "Трудові спори", "Захист прав дітей"],
+      en: ["Family Law", "Human Rights Protection", "Labor Disputes", "Children's Rights Protection"]
+    },
+    achievements: {
+      uk: [
+        "Успішне представництво у понад 80 сімейних справах.",
+        "Досвід роботи з практикою Європейського суду з прав людини.",
+        "Волонтерка проєкту безоплатної правової допомоги для жінок.",
+        "Авторка публікацій з питань захисту прав дітей у спеціалізованих виданнях."
+      ],
+      en: [
+        "Successful representation in over 80 family cases.",
+        "Experience working with the European Court of Human Rights practice.",
+        "Volunteer in a free legal aid project for women.",
+        "Author of publications on children's rights protection in specialized journals."
+      ]
+    },
+    values: {
+      uk: "Наталія переконана, що кожна людина заслуговує на якісний правовий захист незалежно від обставин. Її місія — робити право доступним та зрозумілим для кожного, хто потребує допомоги.",
+      en: "Nataliia believes that every person deserves quality legal protection regardless of circumstances. Her mission is to make law accessible and understandable for everyone who needs help."
     }
   }
 ];

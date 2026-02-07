@@ -31,74 +31,59 @@ export default function Team() {
 
       <section className="py-20 bg-background">
         <div className="container-wide">
-          <div className="space-y-16">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {teamMembers.map((member, i) => (
-              <motion.article
-                key={member.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="grid lg:grid-cols-3 gap-8 items-start"
-                data-testid={`card-team-${member.id}`}
-              >
-                <Link href={`/team/${member.slug}`} className="block">
-                  <div className="aspect-[3/4] overflow-hidden group cursor-pointer bg-muted">
+              <Link key={member.id} href={`/team/${member.slug}`}>
+                <motion.article
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  data-testid={`card-team-${member.id}`}
+                >
+                  <div className="aspect-[4/5] overflow-hidden bg-muted relative">
                     {member.photo ? (
                       <img 
                         src={member.photo} 
                         alt={member.name[locale]}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-primary/10">
-                        <User className="w-24 h-24 text-primary/40" />
+                      <div className="w-full h-full bg-muted flex items-center justify-center">
+                        <User className="w-24 h-24 text-muted-foreground" />
                       </div>
                     )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   </div>
-                </Link>
-
-                <div className="lg:col-span-2 space-y-6">
-                  <div>
-                    <Link href={`/team/${member.slug}`}>
-                      <h2 className="text-3xl font-serif font-bold text-foreground hover:text-primary transition-colors cursor-pointer">
-                        {member.name[locale]}
-                      </h2>
-                    </Link>
-                    <p className="text-lg text-muted-foreground mt-2">
-                      {member.role[locale]}
-                    </p>
+                  
+                  <div className="p-6">
+                    <div className="mb-4">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">{member.name[locale]}</h3>
+                      <div className="inline-block">
+                        <p className="text-sm font-semibold text-primary bg-secondary/20 px-3 py-1 rounded-full">
+                          {member.role[locale]}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <p className="line-clamp-3">
+                        {member.bio[locale].substring(0, 120)}...
+                      </p>
+                    </div>
+                    
+                    <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+                      <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                        <div className="flex items-center space-x-1">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span>{locale === 'uk' ? 'Доступний для консультацій' : 'Available for consultations'}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-
-                  <blockquote className="border-l-4 border-primary pl-6 py-2">
-                    <p className="text-lg italic text-muted-foreground">"{member.quote[locale]}"</p>
-                  </blockquote>
-
-                  <p className="text-muted-foreground leading-relaxed">
-                    {member.bio[locale]}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {member.specialization[locale].map((spec, j) => (
-                      <span 
-                        key={j}
-                        className="px-4 py-2 bg-primary/5 text-primary text-sm font-medium"
-                      >
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="pt-4">
-                    <Link href={`/team/${member.slug}`}>
-                      <Button variant="outline" className="group">
-                        {locale === "uk" ? "Детальніше про фахівця" : "Learn more about the specialist"}
-                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </motion.article>
+                </motion.article>
+              </Link>
             ))}
           </div>
         </div>
