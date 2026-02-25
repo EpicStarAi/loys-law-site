@@ -1,7 +1,8 @@
 import { useI18n } from "@/i18n/I18nProvider";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Briefcase, Check, ArrowRight, Lightbulb, TrendingUp, Users } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { GraduationCap, Briefcase, Check, ArrowRight, Lightbulb, TrendingUp, Users, BookOpen, Award } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Career() {
@@ -22,6 +23,24 @@ export default function Career() {
       icon: Users,
       title: t.career.advantage3,
       description: t.career.advantage3Desc,
+    },
+  ];
+
+  const careerOptions = [
+    {
+      icon: Briefcase,
+      title: t.career.assistantTitle,
+      description: t.career.assistantDesc,
+    },
+    {
+      icon: Award,
+      title: t.career.internshipTitle,
+      description: t.career.internshipDesc,
+    },
+    {
+      icon: BookOpen,
+      title: t.career.practiceTitle,
+      description: t.career.practiceDesc,
     },
   ];
 
@@ -71,8 +90,45 @@ export default function Career() {
         </div>
       </section>
 
-      {/* How to Join */}
+      {/* Career Opportunities */}
       <section className="py-20 bg-muted/30">
+        <div className="container-wide">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-serif font-bold mb-4">{t.career.opportunities}</h2>
+            <p className="text-muted-foreground text-lg">{t.career.opportunitiesDesc}</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {careerOptions.map((option, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <option.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl font-serif">{option.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground leading-relaxed mb-6">{option.description}</p>
+                    <Link href="/contact">
+                      <Button variant="outline" className="w-full">
+                        {t.career.contactUs}
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How to Join */}
+      <section className="py-20 bg-background">
         <div className="container-wide">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-serif font-bold mb-6">{t.career.joinTeam}</h2>
@@ -100,10 +156,10 @@ export default function Career() {
       </section>
 
       {/* Vacancies */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-muted/30">
         <div className="container-wide">
           <h2 className="text-3xl font-serif font-bold mb-8">{t.career.vacancies}</h2>
-          
+
           <div className="text-center py-16">
             <Briefcase className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">{t.career.noVacancies}</h3>
