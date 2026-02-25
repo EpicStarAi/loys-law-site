@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LOYS Brand Palette: Dark Blue-Gray + Gold/Beige */
+  --background: 210 20% 97%;    /* Light gray background */
+  --foreground: 210 25% 25%;    /* Dark slate text */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 210 25% 25%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 25% 25%;
+  
+  --primary: 210 22% 31%;       /* #3d4f5f - Main brand dark blue */
+  --primary-foreground: 210 20% 96%;  /* Near-white for accessibility */
+  
+  --secondary: 38 30% 69%;      /* #c9b896 - Gold accent */
+  --secondary-foreground: 210 22% 20%;
+  
+  --muted: 210 15% 93%;
+  --muted-foreground: 210 15% 45%;
+  
+  --accent: 38 30% 69%;         /* Gold accent for highlights */
+  --accent-foreground: 210 22% 20%;
+  
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 210 15% 88%;
+  --input: 210 15% 88%;
+  --ring: 38 30% 69%;
+  
+  --radius: 0px; /* Sharp corners for strict look */
+
+  /* Brand Gold Color */
+  --gold: 38 30% 69%;
+  --gold-foreground: 210 22% 20%;
+
+  /* Fonts */
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+.dark {
+  --background: 210 22% 18%;     /* Dark blue-gray from renders */
+  --foreground: 38 25% 85%;      /* Light gold/cream */
+  
+  --card: 210 22% 22%;
+  --card-foreground: 38 25% 85%;
+  
+  --popover: 210 22% 22%;
+  --popover-foreground: 38 25% 85%;
+  
+  --primary: 210 22% 31%;        /* Brand dark blue */
+  --primary-foreground: 210 20% 96%;  /* Near-white for accessibility */
+  
+  --secondary: 38 30% 69%;       /* Gold */
+  --secondary-foreground: 210 22% 18%;
+  
+  --muted: 210 20% 25%;
+  --muted-foreground: 38 15% 60%;
+  
+  --accent: 38 30% 69%;          /* Gold accent */
+  --accent-foreground: 210 22% 18%;
+  
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 210 20% 28%;
+  --input: 210 20% 28%;
+  --ring: 38 30% 69%;
+
+  /* Brand Gold Color */
+  --gold: 38 30% 69%;
+  --gold-foreground: 210 22% 18%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply font-bold tracking-tight;
+  }
+  
+  /* Minimalist Utility Classes */
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}
+
+/* Custom Scrollbar for Chat */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
