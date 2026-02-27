@@ -132,8 +132,8 @@ export default function Contact() {
                   >
                     <SiTelegram className="w-5 h-5" />
                   </a>
-                  <a 
-                    href="viber://chat?number=%2B380977777600"
+                  <a
+                    href="viber://chat?number=380977777600"
                     className="w-10 h-10 bg-[#7360f2] text-white flex items-center justify-center hover:opacity-80 transition-opacity"
                   >
                     <SiViber className="w-5 h-5" />
