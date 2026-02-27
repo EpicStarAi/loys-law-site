@@ -10,7 +10,7 @@ export default function Team() {
 
   return (
     <div className="min-h-screen">
-      <section className="bg-primary text-white py-32">
+      <section className="bg-primary text-white pt-40 pb-32">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

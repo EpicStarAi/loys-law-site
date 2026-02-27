@@ -21,7 +21,7 @@ export default function BlogPost() {
   return (
     <article className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-primary text-white py-24">
+      <div className="bg-primary text-white pt-32 pb-24">
          <div className="container-wide max-w-4xl">
             <Link href="/blog" className="inline-flex items-center text-sm text-white/60 hover:text-white mb-8 transition-colors">
               <ChevronLeft className="w-4 h-4 mr-1" /> {locale === "uk" ? "Назад до блогу" : "Back to Blog"}

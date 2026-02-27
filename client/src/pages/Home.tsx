@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* HERO SECTION - Full screen with image */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden pt-24 lg:pt-0">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

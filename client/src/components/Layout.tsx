@@ -189,7 +189,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      <main className="flex-1 pt-0">
+      <main className="flex-1">
         {children}
       </main>
 

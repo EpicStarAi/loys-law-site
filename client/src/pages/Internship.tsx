@@ -42,7 +42,7 @@ export default function Internship() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary to-primary/80 text-white py-32">
+      <section className="bg-gradient-to-br from-primary to-primary/80 text-white pt-40 pb-32">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
