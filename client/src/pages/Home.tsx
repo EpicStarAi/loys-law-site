@@ -46,9 +46,9 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* HERO SECTION - Full screen with image */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden pt-24 lg:pt-0">
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=2000')"
@@ -56,8 +56,8 @@ export default function Home() {
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
-        
-        <div className="container-wide relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+
+        <div className="container-wide relative z-10 grid lg:grid-cols-2 gap-12 items-center pt-32 pb-20 lg:pt-40 lg:pb-24">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
