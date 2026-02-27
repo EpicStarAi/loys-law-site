@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Phone, Globe, Facebook, MessageCircle } from "lucide-react";
+import { Phone, Globe, Facebook, MessageCircle, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -8,9 +8,11 @@ import MusicPlayer from "./MusicPlayer";
 import { useI18n } from "@/i18n/I18nProvider";
 import { ThemeToggle } from "./ThemeToggle";
 import { SiTelegram, SiViber, SiWhatsapp } from "react-icons/si";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
   const { locale, setLocale, t } = useI18n();
 
@@ -74,14 +76,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </Link>
 
-          {/* Navigation - Always Visible */}
-          <nav className="flex items-center gap-3 sm:gap-4 lg:gap-5 flex-wrap">
+          {/* Desktop Navigation */}
+          <nav className="hidden xl:flex items-center gap-5">
             {navItems.map((item) => (
-              <Link 
-                key={item.href} 
+              <Link
+                key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-xs sm:text-sm uppercase tracking-wider font-medium hover:text-opacity-70 transition-all whitespace-nowrap",
+                  "text-sm uppercase tracking-wider font-medium hover:text-opacity-70 transition-all whitespace-nowrap",
                   isScrolled ? "text-foreground" : "text-white",
                   location === item.href && "border-b-2 border-current pb-1"
                 )}
@@ -89,19 +91,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {item.label}
               </Link>
             ))}
-            
-            {/* Controls */}
-            <div className="flex items-center gap-1 sm:gap-2 ml-2">
+
+            {/* Desktop Controls */}
+            <div className="flex items-center gap-2 ml-2">
               {/* Language Switcher */}
               <button
                 onClick={toggleLocale}
                 className={cn(
-                  "flex items-center gap-1 text-xs sm:text-sm font-medium transition-all px-2 py-1 rounded",
+                  "flex items-center gap-1 text-sm font-medium transition-all px-2 py-1 rounded",
                   isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
                 )}
                 data-testid="button-language-toggle"
               >
-                <Globe className="h-3 w-3 sm:h-4 sm:w-4" />
+                <Globe className="h-4 w-4" />
                 <span>{locale === "uk" ? "EN" : "UA"}</span>
               </button>
 
@@ -113,19 +115,76 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </div>
 
               {/* Phone */}
-              <a href="tel:+380977777600" className="hidden sm:block">
-                <Button 
-                  variant={isScrolled ? "default" : "secondary"} 
+              <a href="tel:+380977777600">
+                <Button
+                  variant={isScrolled ? "default" : "secondary"}
                   size="sm"
                   className="gap-2"
                 >
-                  <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
-                  <span className="hidden md:block">+380 97 777 76 00</span>
-                  <span className="md:hidden">Тел.</span>
+                  <Phone className="h-4 w-4" />
+                  <span className="hidden lg:block">+380 97 777 76 00</span>
+                  <span className="lg:hidden">Тел.</span>
                 </Button>
               </a>
             </div>
           </nav>
+
+          {/* Mobile Navigation */}
+          <div className="xl:hidden flex items-center gap-2">
+            {/* Language Switcher Mobile */}
+            <button
+              onClick={toggleLocale}
+              className={cn(
+                "flex items-center gap-1 text-xs font-medium transition-all px-2 py-1 rounded",
+                isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
+              )}
+            >
+              <Globe className="h-4 w-4" />
+              <span>{locale === "uk" ? "EN" : "UA"}</span>
+            </button>
+
+            {/* Mobile Menu */}
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={cn(
+                    isScrolled ? "text-foreground" : "text-white"
+                  )}
+                >
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <nav className="flex flex-col gap-6 mt-8">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={cn(
+                        "text-lg font-medium hover:text-primary transition-colors",
+                        location === item.href && "text-primary"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+
+                  <div className="border-t pt-6 mt-4">
+                    <a
+                      href="tel:+380977777600"
+                      className="flex items-center gap-3 text-lg font-medium hover:text-primary transition-colors"
+                    >
+                      <Phone className="h-5 w-5" />
+                      <span>+380 97 777 76 00</span>
+                    </a>
+                  </div>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
 
