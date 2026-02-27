@@ -77,13 +77,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-5">
+          <nav className="hidden lg:flex items-center gap-2 lg:gap-3 xl:gap-5">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm uppercase tracking-wider font-medium hover:text-opacity-70 transition-all whitespace-nowrap",
+                  "text-xs lg:text-sm uppercase tracking-wider font-medium hover:text-opacity-70 transition-all whitespace-nowrap",
                   isScrolled ? "text-foreground" : "text-white",
                   location === item.href && "border-b-2 border-current pb-1"
                 )}
@@ -93,22 +93,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
             ))}
 
             {/* Desktop Controls */}
-            <div className="flex items-center gap-2 ml-2">
+            <div className="flex items-center gap-1 lg:gap-2 ml-1 lg:ml-2">
               {/* Language Switcher */}
               <button
                 onClick={toggleLocale}
                 className={cn(
-                  "flex items-center gap-1 text-sm font-medium transition-all px-2 py-1 rounded",
+                  "flex items-center gap-1 text-xs lg:text-sm font-medium transition-all px-1.5 lg:px-2 py-1 rounded",
                   isScrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"
                 )}
                 data-testid="button-language-toggle"
               >
-                <Globe className="h-4 w-4" />
-                <span>{locale === "uk" ? "EN" : "UA"}</span>
+                <Globe className="h-3.5 lg:h-4 w-3.5 lg:w-4" />
+                <span className="text-xs lg:text-sm">{locale === "uk" ? "EN" : "UA"}</span>
               </button>
 
               {/* Theme Toggle */}
               <div className={cn(
+                "scale-90 lg:scale-100",
                 isScrolled ? "text-foreground" : "text-white"
               )}>
                 <ThemeToggle />
@@ -119,18 +120,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Button
                   variant={isScrolled ? "default" : "secondary"}
                   size="sm"
-                  className="gap-2"
+                  className="gap-1 lg:gap-2 text-xs lg:text-sm px-2 lg:px-3"
                 >
-                  <Phone className="h-4 w-4" />
-                  <span className="hidden lg:block">+380 97 777 76 00</span>
-                  <span className="lg:hidden">Тел.</span>
+                  <Phone className="h-3 lg:h-4 w-3 lg:w-4" />
+                  <span className="hidden xl:block">+380 97 777 76 00</span>
+                  <span className="xl:hidden">Тел.</span>
                 </Button>
               </a>
             </div>
           </nav>
 
           {/* Mobile Navigation */}
-          <div className="xl:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             {/* Language Switcher Mobile */}
             <button
               onClick={toggleLocale}
