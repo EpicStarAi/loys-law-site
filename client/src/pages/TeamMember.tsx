@@ -31,7 +31,7 @@ export default function TeamMember() {
 
   return (
     <div className="min-h-screen">
-      <section className="bg-primary text-white pt-40 pb-32">
+      <section className="bg-primary text-white pt-24 pb-32">
         <div className="container-wide">
           <Link href="/team">
             <Button variant="ghost" className="text-white/70 hover:text-white mb-8" data-testid="button-back-team">

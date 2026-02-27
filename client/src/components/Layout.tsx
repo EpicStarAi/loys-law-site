@@ -43,36 +43,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-          isScrolled ? "bg-background/95 backdrop-blur-md border-border py-3 shadow-sm" : "bg-transparent py-6 text-white"
+          isScrolled ? "bg-background/95 backdrop-blur-md border-border py-2 shadow-sm" : "bg-transparent py-3 text-white"
         )}
       >
         <div className="container-wide flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               <span className={cn(
-                "text-xl sm:text-2xl lg:text-3xl font-serif font-normal tracking-[0.2em] sm:tracking-[0.3em] leading-none",
+                "text-lg sm:text-xl lg:text-2xl font-serif font-normal tracking-[0.2em] sm:tracking-[0.3em] leading-none",
                 isScrolled ? "text-primary" : "text-[#c9b896]"
               )}>
                 LOYS
               </span>
               <span className={cn(
-                "mx-2 sm:mx-3 h-6 sm:h-8 lg:h-10 w-px hidden sm:block",
+                "mx-1 sm:mx-2 h-5 sm:h-6 w-px hidden sm:block",
                 isScrolled ? "bg-primary/30" : "bg-[#c9b896]/40"
               )} />
-              <div className="hidden sm:flex flex-col">
-                <span className={cn(
-                  "text-xs sm:text-sm font-light leading-tight",
-                  isScrolled ? "text-primary" : "text-[#c9b896]"
-                )}>
-                  {locale === "uk" ? "Адвокатське об'єднання" : "Law office"}
-                </span>
-                <span className={cn(
-                  "text-xs sm:text-sm font-light leading-tight",
-                  isScrolled ? "text-primary" : "text-[#c9b896]"
-                )}>
-                  {locale === "uk" ? "Яремчук і Седун" : "Yaremchuk & Sedun"}
-                </span>
-              </div>
+              <span className={cn(
+                "text-xs sm:text-sm font-light leading-tight hidden sm:block",
+                isScrolled ? "text-primary" : "text-[#c9b896]"
+              )}>
+                {locale === "uk" ? "Адвокатське об'єднання" : "Law office"}
+              </span>
             </div>
           </Link>
 
