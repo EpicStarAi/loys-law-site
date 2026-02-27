@@ -258,16 +258,16 @@ export const teamMembers: TeamMemberData[] = [
   },
   {
     id: "5",
-    slug: "oleksandr-kovalenko",
-    name: { uk: "Коваленко Олександр Ігорович", en: "Oleksandr Kovalenko" },
+    slug: "dmytro-minaiev",
+    name: { uk: "Дмитро Мінаєв", en: "Dmytro Minaiev" },
     role: { uk: "Адвокат", en: "Attorney" },
     quote: {
       uk: "Справжній адвокат бачить рішення там, де інші бачать лише проблему.",
       en: "A true attorney sees a solution where others see only a problem."
     },
     bio: {
-      uk: "Олександр Коваленко — адвокат із багаторічним досвідом у сфері господарського та корпоративного права. Спеціалізується на супроводі бізнесу, договірному праві та вирішенні комерційних спорів. Відомий системним підходом та увагою до деталей.",
-      en: "Oleksandr Kovalenko is an attorney with extensive experience in commercial and corporate law. He specializes in business support, contract law, and resolution of commercial disputes. Known for his systematic approach and attention to detail."
+      uk: "Дмитро Мінаєв — адвокат із багаторічним досвідом у сфері господарського та корпоративного права. Спеціалізується на супроводі бізнесу, договірному праві та вирішенні комерційних спорів. Відомий системним підходом та увагою до деталей.",
+      en: "Dmytro Minaiev is an attorney with extensive experience in commercial and corporate law. He specializes in business support, contract law, and resolution of commercial disputes. Known for his systematic approach and attention to detail."
     },
     photo: kovalenkoPhoto,
     education: {
@@ -311,8 +311,8 @@ export const teamMembers: TeamMemberData[] = [
       ]
     },
     values: {
-      uk: "Олександр вірить, що якісна правова допомога — це основа стабільного бізнесу. Його аналітичний розум та стратегічне мислення дозволяють знаходити оптимальні рішення навіть у найскладніших комерційних спорах.",
-      en: "Oleksandr believes that quality legal assistance is the foundation of a stable business. His analytical mind and strategic thinking allow him to find optimal solutions even in the most complex commercial disputes."
+      uk: "Дмитро вірить, що якісна правова допомога — це основа стабільного бізнесу. Його аналітичний розум та стратегічне мислення дозволяють знаходити оптимальні рішення навіть у найскладніших комерційних спорах.",
+      en: "Dmytro believes that quality legal assistance is the foundation of a stable business. His analytical mind and strategic thinking allow him to find optimal solutions even in the most complex commercial disputes."
     }
   },
   {
