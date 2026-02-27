@@ -47,27 +47,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
         )}
       >
         <div className="container-wide flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <div className="flex items-center">
               <span className={cn(
-                "text-3xl font-serif font-normal tracking-[0.3em] leading-none",
+                "text-xl sm:text-2xl lg:text-3xl font-serif font-normal tracking-[0.2em] sm:tracking-[0.3em] leading-none",
                 isScrolled ? "text-primary" : "text-[#c9b896]"
               )}>
                 LOYS
               </span>
               <span className={cn(
-                "mx-3 h-10 w-px",
+                "mx-2 sm:mx-3 h-6 sm:h-8 lg:h-10 w-px hidden sm:block",
                 isScrolled ? "bg-primary/30" : "bg-[#c9b896]/40"
               )} />
-              <div className="flex flex-col">
+              <div className="hidden sm:flex flex-col">
                 <span className={cn(
-                  "text-sm font-light leading-tight",
+                  "text-xs sm:text-sm font-light leading-tight",
                   isScrolled ? "text-primary" : "text-[#c9b896]"
                 )}>
                   {locale === "uk" ? "Адвокатське об'єднання" : "Law office"}
                 </span>
                 <span className={cn(
-                  "text-sm font-light leading-tight",
+                  "text-xs sm:text-sm font-light leading-tight",
                   isScrolled ? "text-primary" : "text-[#c9b896]"
                 )}>
                   {locale === "uk" ? "Яремчук і Седун" : "Yaremchuk & Sedun"}
