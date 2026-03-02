@@ -317,61 +317,61 @@ export const teamMembers: TeamMemberData[] = [
   },
   {
     id: "6",
-    slug: "nataliia-marchenko",
-    name: { uk: "Марченко Наталія Сергіївна", en: "Nataliia Marchenko" },
-    role: { uk: "Адвокат", en: "Attorney" },
+    slug: "iryna-oliynyk",
+    name: { uk: "Олійник Ірина Володимирівна", en: "Iryna Oliynyk" },
+    role: { uk: "Спеціаліст з реєстраційних дій, бухгалтерського обліку та звітності", en: "Registration, Accounting and Reporting Specialist" },
     quote: {
-      uk: "Закон має служити людям, а не навпаки.",
-      en: "The law should serve people, not the other way around."
+      uk: "Точність та відповідальність — основа успішного бізнесу.",
+      en: "Accuracy and responsibility are the foundation of successful business."
     },
     bio: {
-      uk: "Наталія Марченко — адвокат, яка спеціалізується на захисті прав людини, сімейному праві та трудових спорах. Має значний досвід у справах, пов'язаних із захистом прав дітей та жінок. Відома своїм емпатичним підходом та рішучістю у захисті інтересів клієнтів.",
-      en: "Nataliia Marchenko is an attorney specializing in human rights protection, family law, and labor disputes. She has significant experience in cases related to the protection of children's and women's rights. Known for her empathetic approach and determination in defending clients' interests."
+      uk: "Ірина Олійник — досвідчений спеціаліст з реєстраційних дій, бухгалтерського обліку та звітності. Забезпечує професійний супровід реєстраційних процедур, ведення бухгалтерського обліку та підготовку звітності відповідно до чинного законодавства України.",
+      en: "Iryna Oliynyk is an experienced specialist in registration actions, accounting and reporting. Provides professional support for registration procedures, accounting and preparation of reports in accordance with current legislation of Ukraine."
     },
     photo: marchenkoPhoto,
     education: {
       uk: [
-        "Київський національний університет імені Тараса Шевченка (2010–2015): Юридичний факультет, магістр права.",
-        "Стажування в Європейському суді з прав людини (2018)."
+        "Вища освіта за спеціальністю облік і аудит.",
+        "Курси підвищення кваліфікації з податкового обліку та звітності."
       ],
       en: [
-        "Taras Shevchenko National University of Kyiv (2010–2015): Faculty of Law, Master of Law.",
-        "Internship at the European Court of Human Rights (2018)."
+        "Higher education in accounting and auditing.",
+        "Advanced training courses in tax accounting and reporting."
       ]
     },
     experience: {
       uk: [
-        "2015–2018: Помічник адвоката у сфері сімейного права.",
-        "2018–2021: Юрист у правозахисній організації.",
-        "З 2021 року: Адвокатська діяльність з фокусом на захист прав людини та сімейне право."
+        "Понад 10 років досвіду в галузі бухгалтерського обліку та звітності.",
+        "Супровід реєстраційних дій юридичних осіб та фізичних осіб-підприємців.",
+        "Ведення бухгалтерського обліку для компаній різних форм власності."
       ],
       en: [
-        "2015–2018: Attorney's assistant in family law.",
-        "2018–2021: Lawyer at a human rights organization.",
-        "Since 2021: Legal practice focused on human rights protection and family law."
+        "Over 10 years of experience in accounting and reporting.",
+        "Support for registration actions of legal entities and individual entrepreneurs.",
+        "Accounting for companies of various forms of ownership."
       ]
     },
     specialization: {
-      uk: ["Сімейне право", "Захист прав людини", "Трудові спори", "Захист прав дітей"],
-      en: ["Family Law", "Human Rights Protection", "Labor Disputes", "Children's Rights Protection"]
+      uk: ["Реєстрація юридичних осіб", "Бухгалтерський облік", "Податкова звітність", "Фінансова звітність"],
+      en: ["Legal Entity Registration", "Accounting", "Tax Reporting", "Financial Reporting"]
     },
     achievements: {
       uk: [
-        "Успішне представництво у понад 80 сімейних справах.",
-        "Досвід роботи з практикою Європейського суду з прав людини.",
-        "Волонтерка проєкту безоплатної правової допомоги для жінок.",
-        "Авторка публікацій з питань захисту прав дітей у спеціалізованих виданнях."
+        "Успішний супровід реєстрації понад 200 юридичних осіб та ФОП.",
+        "Багаторічний досвід ведення бухгалтерського обліку для малого та середнього бізнесу.",
+        "Експертиза в податковому плануванні та оптимізації.",
+        "Безпомилкова підготовка фінансової та податкової звітності."
       ],
       en: [
-        "Successful representation in over 80 family cases.",
-        "Experience working with the European Court of Human Rights practice.",
-        "Volunteer in a free legal aid project for women.",
-        "Author of publications on children's rights protection in specialized journals."
+        "Successful registration support for over 200 legal entities and individual entrepreneurs.",
+        "Many years of experience in accounting for small and medium businesses.",
+        "Expertise in tax planning and optimization.",
+        "Error-free preparation of financial and tax reporting."
       ]
     },
     values: {
-      uk: "Наталія переконана, що кожна людина заслуговує на якісний правовий захист незалежно від обставин. Її місія — робити право доступним та зрозумілим для кожного, хто потребує допомоги.",
-      en: "Nataliia believes that every person deserves quality legal protection regardless of circumstances. Her mission is to make law accessible and understandable for everyone who needs help."
+      uk: "Ірина вважає, що точність у деталях та дотримання законодавства — ключові принципи успішного ведення бізнесу. Її професіоналізм допомагає клієнтам зосередитися на розвитку своєї справи, довіривши облік досвідченому спеціалісту.",
+      en: "Iryna believes that attention to detail and compliance with legislation are key principles of successful business management. Her professionalism helps clients focus on developing their business by entrusting accounting to an experienced specialist."
     }
   }
 ];
