@@ -25,26 +25,24 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Усна юридична консультація (до 30 хв)",
         nameEn: "Oral legal consultation (up to 30 min)",
-        priceFrom: 1000,
-        priceTo: 1500,
+        priceFrom: 1500,
       },
       {
         name: "Усна юридична консультація (понад 30 хв)",
         nameEn: "Oral legal consultation (over 30 min)",
-        priceFrom: 1500,
-        priceTo: 2500,
+        priceFrom: 3000,
       },
       {
         name: "Письмова юридична консультація",
         nameEn: "Written legal consultation",
-        priceFrom: 2500,
+        priceFrom: 4000,
         note: "Залежить від обсягу та складності",
         noteEn: "Depends on volume and complexity",
       },
       {
         name: "Правовий аналіз документів (без письмового висновку)",
         nameEn: "Legal document analysis (without written opinion)",
-        priceFrom: 2000,
+        priceFrom: 3000,
       },
     ],
   },
@@ -57,26 +55,28 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Захист підозрюваного/обвинуваченого на стадії досудового розслідування",
         nameEn: "Defense of suspect/accused during pre-trial investigation",
-        priceFrom: 25000,
-        note: "Щомісячна або погодинна оплата",
+        priceFrom: 30000,
+        note: "Щомісячна або погодинна оплата, або за стадію обговорення індивідуально",
         noteEn: "Monthly or hourly payment",
       },
       {
         name: "Захист підозрюваного/обвинуваченого на стадії судового розгляду",
         nameEn: "Defense of suspect/accused during trial",
-        priceFrom: 30000,
-        note: "Щомісячна або погодинна оплата",
+        priceFrom: 40000,
+        note: "Щомісячна або погодинна оплата, або за стадію обговорення індивідуально",
         noteEn: "Monthly or hourly payment",
       },
       {
         name: "Представництво інтересів потерпілого у кримінальному провадженні",
         nameEn: "Representation of victim in criminal proceedings",
-        priceFrom: 20000,
+        priceFrom: 30000,
+        note: "Щомісячна або погодинна оплата, або за стадію обговорення індивідуально",
+        noteEn: "Monthly or hourly payment",
       },
       {
         name: "Підготовка апеляційної/касаційної скарги",
         nameEn: "Preparation of appeal/cassation complaint",
-        priceFrom: 10000,
+        priceFrom: 15000,
       },
     ],
   },
@@ -87,9 +87,14 @@ export const servicesData: ServiceCategory[] = [
     icon: "Scale",
     services: [
       {
+        name: "Досудове врегулювання",
+        nameEn: "Pre-trial settlement",
+        priceFrom: 5000,
+      },
+      {
         name: "Представництво інтересів в суді I інстанції (повний супровід \"під ключ\")",
         nameEn: "Representation in court of first instance (full turnkey support)",
-        priceFrom: 20000,
+        priceFrom: 25000,
         note: "Без врахування судового збору та інших витрат",
         noteEn: "Excluding court fees and other expenses",
       },
@@ -103,12 +108,12 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Складання позовної заяви, відзиву, заперечень",
         nameEn: "Drafting of claim, response, objections",
-        priceFrom: 3000,
+        priceFrom: 7000,
       },
       {
         name: "Підготовка апеляційної/касаційної скарги",
         nameEn: "Preparation of appeal/cassation complaint",
-        priceFrom: 8000,
+        priceFrom: 15000,
       },
       {
         name: "Представництво інтересів в апеляційній/касаційній інстанції (повний супровід)",
@@ -126,7 +131,7 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Розлучення (без спірних питань)",
         nameEn: "Divorce (uncontested)",
-        priceFrom: 8000,
+        priceFrom: 10000,
       },
       {
         name: "Розлучення (зі спірними питаннями: поділ майна, діти)",
@@ -146,7 +151,7 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Підготовка та укладення шлюбного договору",
         nameEn: "Preparation and conclusion of prenuptial agreement",
-        priceFrom: 5000,
+        priceFrom: 10000,
       },
     ],
   },
@@ -172,12 +177,12 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Відновлення на роботі, стягнення заробітної плати",
         nameEn: "Reinstatement, wage recovery",
-        priceFrom: 15000,
+        priceFrom: 20000,
       },
       {
         name: "Представництво інтересів роботодавця/працівника (трудові спори)",
         nameEn: "Representation of employer/employee (labor disputes)",
-        priceFrom: 20000,
+        priceFrom: 25000,
       },
     ],
   },
@@ -190,7 +195,7 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Реєстрація/перереєстрація юридичної особи/ФОП",
         nameEn: "Registration/re-registration of legal entity/sole proprietor",
-        priceFrom: 4000,
+        priceFrom: 8000,
         note: "Без врахування офіційних платежів",
         noteEn: "Excluding official fees",
       },
@@ -200,21 +205,21 @@ export const servicesData: ServiceCategory[] = [
         priceFrom: 6000,
       },
       {
-        name: "Підготовка договорів, угод, протоколів",
+        name: "Підготовка договорів, угод, протоколів (юридичний супровід)",
         nameEn: "Preparation of contracts, agreements, protocols",
-        priceFrom: 3000,
-      },
-      {
-        name: "Абонентське юридичне обслуговування бізнесу",
-        nameEn: "Subscription legal business services",
-        priceFrom: 10000,
-        note: "На місяць",
-        noteEn: "Per month",
+        priceFrom: 5000,
       },
       {
         name: "Представництво інтересів в господарських судах",
         nameEn: "Representation in commercial courts",
-        priceFrom: 25000,
+        priceFrom: 30000,
+      },
+      {
+        name: "Абонентське юридичне обслуговування бізнесу",
+        nameEn: "Subscription legal business services",
+        priceFrom: 20000,
+        note: "На місяць (місячна оплата)",
+        noteEn: "Per month",
       },
       {
         name: "Стягнення дебіторської заборгованості (досудове врегулювання)",
@@ -280,7 +285,7 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Оскарження постанов про притягнення до адміністративної відповідальності",
         nameEn: "Appeal of administrative liability decisions",
-        priceFrom: 5000,
+        priceFrom: 8000,
       },
       {
         name: "Представництво інтересів в адміністративних судах",
@@ -298,14 +303,14 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Супровід виконавчого провадження",
         nameEn: "Enforcement proceedings support",
-        priceFrom: 10000,
+        priceFrom: 15000,
         note: "Додатково може бути % від стягнутої суми",
         noteEn: "Additionally may be % of collected amount",
       },
       {
         name: "Оскарження дій/бездіяльності державного виконавця",
         nameEn: "Appeal of actions/inaction of state executor",
-        priceFrom: 5000,
+        priceFrom: 10000,
       },
     ],
   },
@@ -448,21 +453,20 @@ export const servicesData: ServiceCategory[] = [
       {
         name: "Адвокатський запит",
         nameEn: "Attorney inquiry",
-        priceFrom: 1500,
-        priceTo: 2500,
+        priceFrom: 3500,
       },
       {
         name: "Виїзд адвоката до клієнта/державних органів",
         nameEn: "Attorney visit to client/government agencies",
-        priceFrom: 2000,
+        priceFrom: 4000,
         note: "/година + транспортні витрати",
         noteEn: "/hour + transportation costs",
       },
       {
         name: "Представництво інтересів в державних органах, установах та організаціях",
         nameEn: "Representation in government agencies and organizations",
-        priceFrom: 3000,
-        note: "За візит/процедуру",
+        priceFrom: 4000,
+        note: "За візит/процедуру або за годину",
         noteEn: "Per visit/procedure",
       },
     ],
