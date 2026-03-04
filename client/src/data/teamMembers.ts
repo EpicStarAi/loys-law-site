@@ -146,118 +146,6 @@ export const teamMembers: TeamMemberData[] = [
   },
   {
     id: "3",
-    slug: "lyudmyla-bytsiura",
-    name: { uk: "Бицюра Людмила Володимирівна", en: "Lyudmyla Bytsiura" },
-    role: { uk: "Старший юрист", en: "Senior Lawyer" },
-    quote: { 
-      uk: "Аналітичне мислення та висока відповідальність — ключ до успіху у складних правових проектах.", 
-      en: "Analytical thinking and high responsibility are the keys to success in complex legal projects." 
-    },
-    bio: { 
-      uk: "Людмила Бицюра — досвідчений юрист з багаторічним стажем роботи в органах суддівського врядування. Глибоке розуміння судової системи та практики ЄСПЛ робить її незамінним фахівцем у складних справах.",
-      en: "Lyudmyla Bytsiura is an experienced lawyer with many years of experience in judicial governance bodies. Deep understanding of the judicial system and ECHR practice makes her an indispensable specialist in complex cases."
-    },
-    photo: lyudmylaPhoto,
-    education: {
-      uk: [
-        "Диплом магістра з відзнакою, юридичний факультет Національного університету біоресурсів і природокористування України.",
-        "Аспірантура з поглибленим дослідженням правозастосовної практики."
-      ],
-      en: [
-        "Master's degree with honors, Faculty of Law, National University of Life and Environmental Sciences of Ukraine.",
-        "Postgraduate studies with in-depth research on law enforcement practice."
-      ]
-    },
-    experience: {
-      uk: [
-        "З 2011 року — правове забезпечення діяльності органів суддівського врядування та супровід судових справ.",
-        "Верховний Суд: робота на посаді помічника судді Касаційного кримінального суду, всебічний юридичний супровід розгляду кримінальних справ.",
-        "Вища кваліфікаційна комісія суддів України: правове забезпечення діяльності Комісії."
-      ],
-      en: [
-        "Since 2011 — legal support for judicial governance bodies and court case management.",
-        "Supreme Court: worked as an assistant judge at the Criminal Court of Cassation, comprehensive legal support for criminal case review.",
-        "High Qualification Commission of Judges of Ukraine: legal support for the Commission's activities."
-      ]
-    },
-    specialization: {
-      uk: ["Сімейні спори", "Кримінальне право", "Практика ЄСПЛ"],
-      en: ["Family Disputes", "Criminal Law", "ECHR Practice"]
-    },
-    achievements: {
-      uk: [
-        "Багаторічний стаж дослідження актуальних питань правозастосовної практики.",
-        "Глибоке опанування методології аналізу судових рішень.",
-        "Досвід роботи у Верховному Суді України."
-      ],
-      en: [
-        "Many years of research experience on current issues of law enforcement practice.",
-        "Deep mastery of the methodology for analyzing court decisions.",
-        "Experience working at the Supreme Court of Ukraine."
-      ]
-    },
-    values: {
-      uk: "Аналітичне мислення та висока відповідальність у реалізації складних правових проектів — ключові риси Людмили як професіонала.",
-      en: "Analytical thinking and high responsibility in implementing complex legal projects are Lyudmyla's key professional traits."
-    }
-  },
-  {
-    id: "4",
-    slug: "solomia-lindberg",
-    name: { uk: "Ліндберг Соломія", en: "Solomia Lindberg" },
-    role: { uk: "Асистент", en: "Assistant" },
-    quote: { 
-      uk: "Право — це інструмент змін, і кожен може зробити свій внесок.", 
-      en: "Law is a tool for change, and everyone can make a contribution." 
-    },
-    bio: { 
-      uk: "Соломія Ліндберг — молодий спеціаліст, що здобуває освіту за спеціальністю право в Київській Школі Економіки. Має досвід участі в міжнародних освітніх програмах та активно розвивається в проєктному менеджменті та правничій практиці.",
-      en: "Solomia Lindberg is a young specialist pursuing a law degree at Kyiv School of Economics. She has experience in international educational programs and is actively developing in project management and legal practice."
-    },
-    photo: solomiyaPhoto,
-    education: {
-      uk: [
-        "2024–2028: Спеціальність право, Київська Школа Економіки (КШЕ).",
-        "Квітень–травень 2025: Учасниця «Riga Summer School on EU Law and Human Rights» за підтримки Riga Graduate School of Law."
-      ],
-      en: [
-        "2024–2028: Law major, Kyiv School of Economics (KSE).",
-        "April–May 2025: Participant in 'Riga Summer School on EU Law and Human Rights' supported by Riga Graduate School of Law."
-      ]
-    },
-    experience: {
-      uk: [
-        "2023–2024: Випускниця Української Академії Лідерства (УАЛ).",
-        "З жовтня 2024: Junior проєктний менеджер з організації STEM-подій при університеті.",
-        "З жовтня 2025: Асистент Студентської правничої лабораторії при університеті."
-      ],
-      en: [
-        "2023–2024: Graduate of Ukrainian Leadership Academy (ULA).",
-        "Since October 2024: Junior Project Manager for organizing STEM events at the university.",
-        "Since October 2025: Assistant at the Student Legal Lab at the university."
-      ]
-    },
-    specialization: {
-      uk: ["Право ЄС", "Права людини", "Проєктний менеджмент"],
-      en: ["EU Law", "Human Rights", "Project Management"]
-    },
-    achievements: {
-      uk: [
-        "Випускниця Української Академії Лідерства.",
-        "Учасниця міжнародної літньої школи з права ЄС та прав людини в Ризі."
-      ],
-      en: [
-        "Graduate of Ukrainian Leadership Academy.",
-        "Participant in international summer school on EU Law and Human Rights in Riga."
-      ]
-    },
-    values: {
-      uk: "Соломія поєднує академічну підготовку з практичним досвідом організації проєктів. Її участь у міжнародних освітніх програмах та робота в студентських організаціях формують унікальний погляд на правничу професію.",
-      en: "Solomia combines academic training with practical experience in project organization. Her participation in international educational programs and work in student organizations shapes a unique perspective on the legal profession."
-    }
-  },
-  {
-    id: "5",
     slug: "dmytro-minaiev",
     name: { uk: "Дмитро Мінаєв", en: "Dmytro Minaiev" },
     role: { uk: "Адвокат", en: "Attorney" },
@@ -313,6 +201,118 @@ export const teamMembers: TeamMemberData[] = [
     values: {
       uk: "Дмитро вірить, що якісна правова допомога — це основа стабільного бізнесу. Його аналітичний розум та стратегічне мислення дозволяють знаходити оптимальні рішення навіть у найскладніших комерційних спорах.",
       en: "Dmytro believes that quality legal assistance is the foundation of a stable business. His analytical mind and strategic thinking allow him to find optimal solutions even in the most complex commercial disputes."
+    }
+  },
+  {
+    id: "4",
+    slug: "lyudmyla-bytsiura",
+    name: { uk: "Бицюра Людмила Володимирівна", en: "Lyudmyla Bytsiura" },
+    role: { uk: "Старший юрист", en: "Senior Lawyer" },
+    quote: {
+      uk: "Аналітичне мислення та висока відповідальність — ключ до успіху у складних правових проектах.",
+      en: "Analytical thinking and high responsibility are the keys to success in complex legal projects."
+    },
+    bio: {
+      uk: "Людмила Бицюра — досвідчений юрист з багаторічним стажем роботи в органах суддівського врядування. Глибоке розуміння судової системи та практики ЄСПЛ робить її незамінним фахівцем у складних справах.",
+      en: "Lyudmyla Bytsiura is an experienced lawyer with many years of experience in judicial governance bodies. Deep understanding of the judicial system and ECHR practice makes her an indispensable specialist in complex cases."
+    },
+    photo: lyudmylaPhoto,
+    education: {
+      uk: [
+        "Диплом магістра з відзнакою, юридичний факультет Національного університету біоресурсів і природокористування України.",
+        "Аспірантура з поглибленим дослідженням правозастосовної практики."
+      ],
+      en: [
+        "Master's degree with honors, Faculty of Law, National University of Life and Environmental Sciences of Ukraine.",
+        "Postgraduate studies with in-depth research on law enforcement practice."
+      ]
+    },
+    experience: {
+      uk: [
+        "З 2011 року — правове забезпечення діяльності органів суддівського врядування та супровід судових справ.",
+        "Верховний Суд: робота на посаді помічника судді Касаційного кримінального суду, всебічний юридичний супровід розгляду кримінальних справ.",
+        "Вища кваліфікаційна комісія суддів України: правове забезпечення діяльності Комісії."
+      ],
+      en: [
+        "Since 2011 — legal support for judicial governance bodies and court case management.",
+        "Supreme Court: worked as an assistant judge at the Criminal Court of Cassation, comprehensive legal support for criminal case review.",
+        "High Qualification Commission of Judges of Ukraine: legal support for the Commission's activities."
+      ]
+    },
+    specialization: {
+      uk: ["Сімейні спори", "Кримінальне право", "Практика ЄСПЛ"],
+      en: ["Family Disputes", "Criminal Law", "ECHR Practice"]
+    },
+    achievements: {
+      uk: [
+        "Багаторічний стаж дослідження актуальних питань правозастосовної практики.",
+        "Глибоке опанування методології аналізу судових рішень.",
+        "Досвід роботи у Верховному Суді України."
+      ],
+      en: [
+        "Many years of research experience on current issues of law enforcement practice.",
+        "Deep mastery of the methodology for analyzing court decisions.",
+        "Experience working at the Supreme Court of Ukraine."
+      ]
+    },
+    values: {
+      uk: "Аналітичне мислення та висока відповідальність у реалізації складних правових проектів — ключові риси Людмили як професіонала.",
+      en: "Analytical thinking and high responsibility in implementing complex legal projects are Lyudmyla's key professional traits."
+    }
+  },
+  {
+    id: "5",
+    slug: "solomia-lindberg",
+    name: { uk: "Ліндберг Соломія", en: "Solomia Lindberg" },
+    role: { uk: "Асистент", en: "Assistant" },
+    quote: {
+      uk: "Право — це інструмент змін, і кожен може зробити свій внесок.",
+      en: "Law is a tool for change, and everyone can make a contribution."
+    },
+    bio: {
+      uk: "Соломія Ліндберг — молодий спеціаліст, що здобуває освіту за спеціальністю право в Київській Школі Економіки. Має досвід участі в міжнародних освітніх програмах та активно розвивається в проєктному менеджменті та правничій практиці.",
+      en: "Solomia Lindberg is a young specialist pursuing a law degree at Kyiv School of Economics. She has experience in international educational programs and is actively developing in project management and legal practice."
+    },
+    photo: solomiyaPhoto,
+    education: {
+      uk: [
+        "2024–2028: Спеціальність право, Київська Школа Економіки (КШЕ).",
+        "Квітень–травень 2025: Учасниця «Riga Summer School on EU Law and Human Rights» за підтримки Riga Graduate School of Law."
+      ],
+      en: [
+        "2024–2028: Law major, Kyiv School of Economics (KSE).",
+        "April–May 2025: Participant in 'Riga Summer School on EU Law and Human Rights' supported by Riga Graduate School of Law."
+      ]
+    },
+    experience: {
+      uk: [
+        "2023–2024: Випускниця Української Академії Лідерства (УАЛ).",
+        "З жовтня 2024: Junior проєктний менеджер з організації STEM-подій при університеті.",
+        "З жовтня 2025: Асистент Студентської правничої лабораторії при університеті."
+      ],
+      en: [
+        "2023–2024: Graduate of Ukrainian Leadership Academy (ULA).",
+        "Since October 2024: Junior Project Manager for organizing STEM events at the university.",
+        "Since October 2025: Assistant at the Student Legal Lab at the university."
+      ]
+    },
+    specialization: {
+      uk: ["Право ЄС", "Права людини", "Проєктний менеджмент"],
+      en: ["EU Law", "Human Rights", "Project Management"]
+    },
+    achievements: {
+      uk: [
+        "Випускниця Української Академії Лідерства.",
+        "Учасниця міжнародної літньої школи з права ЄС та прав людини в Ризі."
+      ],
+      en: [
+        "Graduate of Ukrainian Leadership Academy.",
+        "Participant in international summer school on EU Law and Human Rights in Riga."
+      ]
+    },
+    values: {
+      uk: "Соломія поєднує академічну підготовку з практичним досвідом організації проєктів. Її участь у міжнародних освітніх програмах та робота в студентських організаціях формують унікальний погляд на правничу професію.",
+      en: "Solomia combines academic training with practical experience in project organization. Her participation in international educational programs and work in student organizations shapes a unique perspective on the legal profession."
     }
   },
   {
